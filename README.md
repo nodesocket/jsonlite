@@ -8,7 +8,7 @@
 git clone https://github.com/nodesocket/jsonlite.git
 cd jsonlite
 ln -s ./jsonlite /usr/local/bin
-```shell
+```
 
 ### Requirements
 
@@ -24,7 +24,7 @@ ln -s ./jsonlite /usr/local/bin
 ````
 ➜ jsonlite set '{"name":"John Doe"}'
 666B81D6-3F8A-4D57-BA3F-11FA8FC47246
-````shell
+````
 
 ##### get
 
@@ -35,7 +35,7 @@ ln -s ./jsonlite /usr/local/bin
 {
     "name": "John Doe"
 }
-````shell
+````
 
 ##### delete
 
@@ -43,7 +43,7 @@ ln -s ./jsonlite /usr/local/bin
 
 ````
 ➜ jsonlite delete 666B81D6-3F8A-4D57-BA3F-11FA8FC47246
-````shell
+````
 
 ##### destroy
 
@@ -52,7 +52,7 @@ ln -s ./jsonlite /usr/local/bin
 ````
 ➜ jsonlite destroy
 Are you sure you want to destroy '/jsonlite/jsonlite.data' (y/n)? y
-````shell
+````
 
 ##### version
 
@@ -60,7 +60,7 @@ Are you sure you want to destroy '/jsonlite/jsonlite.data' (y/n)? y
 
 ````
 0.1.0
-````shell
+````
 
 ### Changelog
 
