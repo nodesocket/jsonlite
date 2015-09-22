@@ -2,7 +2,7 @@
 
 set -e
 
-VERSION="0.2.0"
+VERSION="0.3.0"
 COMMAND=$1
 CWD=$(pwd);
 

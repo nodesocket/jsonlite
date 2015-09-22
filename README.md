@@ -13,7 +13,7 @@ JSONlite is a proof of concept, and may not make any sense to actually use. It i
 ```
 git clone https://github.com/nodesocket/jsonlite.git
 cd jsonlite
-ln -s $PWD/jsonlite /usr/local/bin
+ln -s $PWD/jsonlite.sh /usr/local/bin/jsonlite
 ```
 
 ## Requirements
@@ -72,7 +72,7 @@ Are you sure you want to destroy '/jsonlite.data' (y/n)? y
 
 ````
 ➜ jsonlite version
-0.2.0
+0.3.0
 ````
 
 ## Changelog

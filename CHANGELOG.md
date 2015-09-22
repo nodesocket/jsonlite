@@ -1,6 +1,16 @@
 CHANGELOG
 =========
 
+## 0.3.0 - *9/22/2015*
+
+- Renamed `jsonlite` to `jsonlite.sh` to clearify it is a shell script.
+
+- Updated the installation section in `README.md` related to creating the symbolic link. The new `ln` command is:
+
+````
+ln -s $PWD/jsonlite.sh /usr/local/bin/jsonlite
+````
+
 ## 0.2.0 - *9/21/2015*
 
 - `get` and `delete` are now idempotent. For example, if you call `get` and pass a uuid that doesn't exist, no error code is returned. Instead a **0** status code is returned and nothing is written to `stdout`.
