@@ -15,18 +15,18 @@
 
 ### API
 
-#### set
+##### set
 
-> set <json>
+> set \<json\>
 
     ````
     ➜ jsonlite set '{"name":"John Doe"}'
     666B81D6-3F8A-4D57-BA3F-11FA8FC47246
     ````
 
-#### get
+##### get
 
-> get <document-id>
+> get \<document-id\>
 
     ````
     ➜ jsonlite get 666B81D6-3F8A-4D57-BA3F-11FA8FC47246
@@ -35,15 +35,15 @@
     }
     ````
 
-#### delete
+##### delete
 
-> delete <document-id>
+> delete \<document-id\>
 
     ````
     ➜ jsonlite delete 666B81D6-3F8A-4D57-BA3F-11FA8FC47246
     ````
 
-#### destroy
+##### destroy
 
 > destroy
 
@@ -52,7 +52,7 @@
     Are you sure you want to destroy '/jsonlite/jsonlite.data' (y/n)? y
     ````
 
-#### version
+##### version
 
 > version
 
