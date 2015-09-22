@@ -72,7 +72,7 @@ Are you sure you want to destroy '/jsonlite.data' (y/n)? y
 
 ````
 ➜ jsonlite version
-0.1.0
+0.2.0
 ````
 
 ## Changelog

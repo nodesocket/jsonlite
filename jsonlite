@@ -2,9 +2,17 @@
 
 set -e
 
-VERSION="0.1.0"
+VERSION="0.2.0"
 COMMAND=$1
 CWD=$(pwd);
+
+function is_valid_uuid {
+    if [[ $1 =~ [A-F0-9]{8}-[A-F0-9]{4}-[A-F0-9]{4}-[A-F0-9]{4}-[A-F0-9]{12}$ ]]; then
+        echo true
+    fi
+
+    echo false
+}
 
 case "$COMMAND" in
     "set")
@@ -32,16 +40,18 @@ case "$COMMAND" in
 
         if [ -z "$2" ]; then
             printf "Missing required argument document id"
-            exit 1;
+            exit 2;
         fi
 
-        if [ ! -f "$CWD/jsonlite.data/$2" ]; then
-            printf "Document id '%s' not found in '$CWD/jsonlite.data'" "$2"
-            exit 1;
+        VALID=$(is_valid_uuid "$2")
+        if [ "$VALID" = false ]; then
+            printf "Invalid argument document id"
+            exit 3;
         fi
 
-        # Need to guard against passing naughty things such as ../..
-        cat "$CWD/jsonlite.data/$2"
+        if [ -f "$CWD/jsonlite.data/$2" ]; then
+            cat "$CWD/jsonlite.data/$2"
+        fi
 
         ;;
 
@@ -49,27 +59,31 @@ case "$COMMAND" in
 
         if [ -z "$2" ]; then
             printf "Missing required argument document id"
-            exit 1;
+            exit 2;
         fi
 
-        if [ ! -f "$CWD/jsonlite.data/$2" ]; then
-            printf "Document id '%s' not found in '$CWD/jsonlite.data'" "$2"
-            exit 1;
+        VALID=$(is_valid_uuid "$2")
+        if [ "$VALID" = false ]; then
+            printf "Invalid argument document id"
+            exit 3;
         fi
 
-        # Need to guard against passing naughty things such as ../..
-        rm -f "$CWD/jsonlite.data/$2"
+        if [ -f "$CWD/jsonlite.data/$2" ]; then
+            rm -f "$CWD/jsonlite.data/$2"
+        fi
 
         ;;
 
     "destroy")
 
-        read -p "Are you sure you want to destroy '$CWD/jsonlite.data' (y/n)? " confirm
-        case "$confirm" in
-                        # Need to guard against potential naughty things
-          y|Y|yes|YES ) rm -rf "$CWD/jsonlite.data";;
-          * ) exit 1;;
-        esac
+        if [ -d "$CWD/jsonlite.data" ]; then
+            read -p "Are you sure you want to destroy '$CWD/jsonlite.data' (y/n)? " confirm
+            case "$confirm" in
+                # Need to guard against potentially naughty things
+                y|Y|yes|YES ) rm -rf "$CWD/jsonlite.data";;
+                * ) exit 4;;
+            esac
+        fi
 
         ;;
 
