@@ -4,14 +4,16 @@
 
 ### Installation
 
-    git clone https://github.com/nodesocket/jsonlite.git
-    cd jsonlite
-    ln -s ./jsonlite /usr/local/bin
+```
+git clone https://github.com/nodesocket/jsonlite.git
+cd jsonlite
+ln -s ./jsonlite /usr/local/bin
+```shell
 
 ### Requirements
 
-    uuidgen
-    python -m json.tool
+1. uuidgen
+2. python -m json.tool
 
 ### API
 
@@ -19,46 +21,46 @@
 
 > set \<json\>
 
-    ````
-    ➜ jsonlite set '{"name":"John Doe"}'
-    666B81D6-3F8A-4D57-BA3F-11FA8FC47246
-    ````
+````
+➜ jsonlite set '{"name":"John Doe"}'
+666B81D6-3F8A-4D57-BA3F-11FA8FC47246
+````shell
 
 ##### get
 
 > get \<document-id\>
 
-    ````
-    ➜ jsonlite get 666B81D6-3F8A-4D57-BA3F-11FA8FC47246
-    {
-        "name": "John Doe"
-    }
-    ````
+````
+➜ jsonlite get 666B81D6-3F8A-4D57-BA3F-11FA8FC47246
+{
+    "name": "John Doe"
+}
+````shell
 
 ##### delete
 
 > delete \<document-id\>
 
-    ````
-    ➜ jsonlite delete 666B81D6-3F8A-4D57-BA3F-11FA8FC47246
-    ````
+````
+➜ jsonlite delete 666B81D6-3F8A-4D57-BA3F-11FA8FC47246
+````shell
 
 ##### destroy
 
 > destroy
 
-    ````
-    ➜ jsonlite destroy
-    Are you sure you want to destroy '/jsonlite/jsonlite.data' (y/n)? y
-    ````
+````
+➜ jsonlite destroy
+Are you sure you want to destroy '/jsonlite/jsonlite.data' (y/n)? y
+````shell
 
 ##### version
 
 > version
 
-    ````
-    0.1.0
-    ````
+````
+0.1.0
+````shell
 
 ### Changelog
 
