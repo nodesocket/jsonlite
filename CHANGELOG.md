@@ -1,6 +1,10 @@
 CHANGELOG
 =========
 
+## 0.4.1 - *9/22/2015*
+
+- Support systems where uuidgen creates lowercase UUIDs
+
 ## 0.4.0 - *9/22/2015*
 
 - Renamed the `destroy` command to `drop`.
