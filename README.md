@@ -6,7 +6,7 @@ JSONlite sandboxes the current working directory just like [SQLite](https://www.
 
 ## Proof of Concept
 
-JSONlite is a proof of concept, and may not make any sense to actually use it in development or production.
+JSONlite is a proof of concept, and it may not make any sense to actually use it in development or production.
 
 ## Installation
 
