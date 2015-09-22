@@ -1,0 +1,83 @@
+#!/bin/bash
+
+set -e
+
+VERSION="0.1.0"
+COMMAND=$1
+CWD=$(pwd);
+
+case "$COMMAND" in
+    "set")
+
+        if [ -z "$2" ]; then
+            printf "Missing required argument json document"
+            exit 1;
+        fi
+
+        if [ ! -d "$CWD/jsonlite.data" ]; then
+            mkdir "$CWD/jsonlite.data"
+        fi
+
+        # Is this portable across distros?
+        UUID=$(uuidgen)
+
+        # Piping to python -m json.tool to pretty json is super expensive.
+        # What would be a good alternative?
+        #
+        # Running tests/set_1k.sh with python -m json.tool took 45
+        # seconds. Without python -m json.tool it took 9 seconds.
+        echo "$2" | python -m json.tool > "$CWD/jsonlite.data/$UUID"
+        echo "$UUID";
+
+        ;;
+
+    "get")
+
+        if [ -z "$2" ]; then
+            printf "Missing required argument document id"
+            exit 1;
+        fi
+
+        if [ ! -f "$CWD/jsonlite.data/$2" ]; then
+            printf "Document id '%s' not found in '$CWD/jsonlite.data'" "$2"
+            exit 1;
+        fi
+
+        # Need to guard against passing naughty things such as ../..
+        cat "$CWD/jsonlite.data/$2"
+
+        ;;
+
+    "delete")
+
+        if [ -z "$2" ]; then
+            printf "Missing required argument document id"
+            exit 1;
+        fi
+
+        if [ ! -f "$CWD/jsonlite.data/$2" ]; then
+            printf "Document id '%s' not found in '$CWD/jsonlite.data'" "$2"
+            exit 1;
+        fi
+
+        # Need to guard against passing naughty things such as ../..
+        rm -f "$CWD/jsonlite.data/$2"
+
+        ;;
+
+    "destroy")
+
+        read -p "Are you sure you want to destroy '$CWD/jsonlite.data' (y/n)? " confirm
+        case "$confirm" in
+                        # Need to guard against potential naughty things
+          y|Y|yes|YES ) rm -rf "$CWD/jsonlite.data";;
+          * ) exit 1;;
+        esac
+
+        ;;
+
+    "version")
+
+        printf "%s" "$VERSION"
+
+    esac
