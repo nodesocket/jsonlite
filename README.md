@@ -15,58 +15,58 @@
 
 ### API
 
-    #### set
+#### set
 
-        set <json>
+> set <json>
 
-        ````
-        ➜ jsonlite set '{"name":"John Doe"}'
-        666B81D6-3F8A-4D57-BA3F-11FA8FC47246
-        ````
+    ````
+    ➜ jsonlite set '{"name":"John Doe"}'
+    666B81D6-3F8A-4D57-BA3F-11FA8FC47246
+    ````
 
-    #### get
+#### get
 
-        get <document-id>
+> get <document-id>
 
-        ````
-        ➜ jsonlite get 666B81D6-3F8A-4D57-BA3F-11FA8FC47246
-        {
-            "name": "John Doe"
-        }
-        ````
+    ````
+    ➜ jsonlite get 666B81D6-3F8A-4D57-BA3F-11FA8FC47246
+    {
+        "name": "John Doe"
+    }
+    ````
 
-    #### delete
+#### delete
 
-        delete <document-id>
+> delete <document-id>
 
-        ````
-        ➜ jsonlite delete 666B81D6-3F8A-4D57-BA3F-11FA8FC47246
-        ````
+    ````
+    ➜ jsonlite delete 666B81D6-3F8A-4D57-BA3F-11FA8FC47246
+    ````
 
-    #### destroy
+#### destroy
 
-        destroy
+> destroy
 
-        ````
-        ➜ jsonlite destroy
-        Are you sure you want to destroy '/jsonlite/jsonlite.data' (y/n)? y
-        ````
+    ````
+    ➜ jsonlite destroy
+    Are you sure you want to destroy '/jsonlite/jsonlite.data' (y/n)? y
+    ````
 
-    #### version
+#### version
 
-        version
+> version
 
-        ````
-        0.1.0
-        ````
+    ````
+    0.1.0
+    ````
 
 ### Changelog
 
-https://github.com/commando/dogpatch/blob/master/CHANGELOG.md
+https://github.com/nodesocket/jsonlite/blob/master/CHANGELOG.md
 
 ### Support, Bugs, And Feature Requests
 
-Create issues here in GitHub (https://github.com/commando/dogpatch/issues).
+Create issues here in GitHub (https://github.com/nodesocket/jsonlite/issues).
 
 ### Versioning
 
