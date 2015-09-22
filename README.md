@@ -1,8 +1,8 @@
 # jsonlite
 
-#### A simple, self-contained, serverless, zero-configuration, [json](http://www.json.org/) document store.
+##### A simple, self-contained, serverless, zero-configuration, [json](http://www.json.org/) document store.
 
-### Installation
+## Installation
 
 ```
 git clone https://github.com/nodesocket/jsonlite.git
@@ -10,12 +10,12 @@ cd jsonlite
 ln -s ./jsonlite /usr/local/bin
 ```
 
-### Requirements
+## Requirements
 
 1. uuidgen
 2. python -m json.tool
 
-### API
+## API
 
 ##### set
 
@@ -62,15 +62,15 @@ Are you sure you want to destroy '/jsonlite/jsonlite.data' (y/n)? y
 0.1.0
 ````
 
-### Changelog
+## Changelog
 
 https://github.com/nodesocket/jsonlite/blob/master/CHANGELOG.md
 
-### Support, Bugs, And Feature Requests
+## Support, Bugs, And Feature Requests
 
 Create issues here in GitHub (https://github.com/nodesocket/jsonlite/issues).
 
-### Versioning
+## Versioning
 
 For transparency and insight into the release cycle, and for striving to maintain backward compatibility, jsonlite will be maintained under the semantic versioning guidelines.
 
@@ -86,7 +86,7 @@ And constructed with the following guidelines:
 
 For more information on semantic versioning, visit http://semver.org/.
 
-### License & Legal
+## License & Legal
 
 Copyright 2015 Justin Keller
 
