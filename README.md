@@ -1,6 +1,12 @@
-# jsonlite
+# JSONlite
 
 ##### A simple, self-contained, serverless, zero-configuration, [json](http://www.json.org/) document store.
+
+JSONlite sandboxes the current working directory just like [SQLite](https://www.sqlite.org/). The data directory is named `jsonlite.data`, and each json document is saved pretty printed as a uuid.
+
+## Proof of Concept
+
+JSONlite is a proof of concept, and may not make any sense to actually use. It is super simple, yet works.
 
 ## Installation
 
@@ -22,7 +28,7 @@ ln -s ./jsonlite /usr/local/bin
 > set \<json\>
 
 ````
-➜ jsonlite set '{"name":"John Doe"}'
+➜ jsonlite set '{"name":"John Doe","active":true,"permissions":{"read":true,"write":false}}'
 666B81D6-3F8A-4D57-BA3F-11FA8FC47246
 ````
 
@@ -33,7 +39,12 @@ ln -s ./jsonlite /usr/local/bin
 ````
 ➜ jsonlite get 666B81D6-3F8A-4D57-BA3F-11FA8FC47246
 {
-    "name": "John Doe"
+    "active": true,
+    "name": "John Doe",
+    "permissions": {
+        "read": true,
+        "write": false
+    }
 }
 ````
 
