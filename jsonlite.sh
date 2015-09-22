@@ -2,7 +2,7 @@
 
 set -e
 
-VERSION="0.3.0"
+VERSION="0.4.0"
 COMMAND=$1
 CWD=$(pwd);
 
@@ -74,12 +74,12 @@ case "$COMMAND" in
 
         ;;
 
-    "destroy")
+    "drop")
 
         if [ -d "$CWD/jsonlite.data" ]; then
-            read -p "Are you sure you want to destroy '$CWD/jsonlite.data' (y/n)? " confirm
+            read -p "Are you sure you want to drop '$CWD/jsonlite.data' (y/n)? " confirm
             case "$confirm" in
-                # Need to guard against potentially naughty things
+                # Do we need to guard against potentially naughty things here?
                 y|Y|yes|YES ) rm -rf "$CWD/jsonlite.data";;
                 * ) exit 4;;
             esac

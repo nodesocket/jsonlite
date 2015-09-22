@@ -6,7 +6,7 @@ JSONlite sandboxes the current working directory just like [SQLite](https://www.
 
 ## Proof of Concept
 
-JSONlite is a proof of concept, and may not make any sense to actually use. It is super simple, yet functional.
+JSONlite is a proof of concept, and may not make any sense to actually use it in development or production.
 
 ## Installation
 
@@ -57,13 +57,13 @@ ln -s $PWD/jsonlite.sh /usr/local/bin/jsonlite
 ➜ jsonlite delete 666B81D6-3F8A-4D57-BA3F-11FA8FC47246
 ````
 
-### destroy
+### drop
 
-> destroy
+> drop
 
 ````
-➜ jsonlite destroy
-Are you sure you want to destroy '/jsonlite.data' (y/n)? y
+➜ jsonlite drop
+Are you sure you want to drop '/jsonlite.data' (y/n)? y
 ````
 
 ### version
@@ -72,7 +72,7 @@ Are you sure you want to destroy '/jsonlite.data' (y/n)? y
 
 ````
 ➜ jsonlite version
-0.3.0
+0.4.0
 ````
 
 ## Changelog

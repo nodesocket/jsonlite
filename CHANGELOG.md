@@ -1,6 +1,10 @@
 CHANGELOG
 =========
 
+## 0.4.0 - *9/22/2015*
+
+- Renamed the `destroy` command to `drop`.
+
 ## 0.3.0 - *9/22/2015*
 
 - Renamed `jsonlite` to `jsonlite.sh` to clearify it is a shell script.
