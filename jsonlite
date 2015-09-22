@@ -21,11 +21,8 @@ case "$COMMAND" in
         # Is this portable across distros?
         UUID=$(uuidgen)
 
-        # Piping to python -m json.tool to pretty json is super expensive.
+        # Piping to python -m json.tool to pretty print json is super expensive.
         # What would be a good alternative?
-        #
-        # Running tests/set_1k.sh with python -m json.tool took 45
-        # seconds. Without python -m json.tool it took 9 seconds.
         echo "$2" | python -m json.tool > "$CWD/jsonlite.data/$UUID"
         echo "$UUID";
 
