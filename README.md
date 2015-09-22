@@ -18,8 +18,9 @@ ln -s ./jsonlite /usr/local/bin
 
 ## Requirements
 
-1. uuidgen
-2. python -m json.tool
+1. bash
+2. uuidgen
+3. python -m json.tool
 
 ## API
 
