@@ -85,7 +85,7 @@ Create issues here in GitHub (https://github.com/nodesocket/jsonlite/issues).
 
 ## Versioning
 
-For transparency and insight into the release cycle, and for striving to maintain backward compatibility, jsonlite will be maintained under the semantic versioning guidelines.
+For transparency and insight into the release cycle, and for striving to maintain backward compatibility, JSONlite will be maintained under the semantic versioning guidelines.
 
 Releases will be numbered with the follow format:
 
