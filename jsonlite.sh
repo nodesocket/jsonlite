@@ -2,7 +2,7 @@
 
 set -e
 
-VERSION="0.4.0"
+VERSION="0.4.1"
 COMMAND=$1
 CWD=$(pwd);
 
@@ -27,7 +27,7 @@ case "$COMMAND" in
         fi
 
         # Is this portable across distros?
-        UUID=$(uuidgen)
+        UUID=$(uuidgen | awk '{print toupper($0)}')
 
         # Piping to python -m json.tool to pretty print json is super expensive.
         # What would be a good alternative?
