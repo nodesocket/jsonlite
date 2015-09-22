@@ -17,7 +17,7 @@ ln -s ./jsonlite /usr/local/bin
 
 ## API
 
-##### set
+### set
 
 > set \<json\>
 
@@ -26,7 +26,7 @@ ln -s ./jsonlite /usr/local/bin
 666B81D6-3F8A-4D57-BA3F-11FA8FC47246
 ````
 
-##### get
+### get
 
 > get \<document-id\>
 
@@ -37,7 +37,7 @@ ln -s ./jsonlite /usr/local/bin
 }
 ````
 
-##### delete
+### delete
 
 > delete \<document-id\>
 
@@ -45,20 +45,21 @@ ln -s ./jsonlite /usr/local/bin
 ➜ jsonlite delete 666B81D6-3F8A-4D57-BA3F-11FA8FC47246
 ````
 
-##### destroy
+### destroy
 
 > destroy
 
 ````
 ➜ jsonlite destroy
-Are you sure you want to destroy '/jsonlite/jsonlite.data' (y/n)? y
+Are you sure you want to destroy '/jsonlite.data' (y/n)? y
 ````
 
-##### version
+### version
 
 > version
 
 ````
+➜ jsonlite version
 0.1.0
 ````
 
