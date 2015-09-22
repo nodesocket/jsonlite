@@ -3,7 +3,7 @@ CHANGELOG
 
 ## 0.4.1 - *9/22/2015*
 
-- Support systems where uuidgen creates lowercase UUIDs
+- Support distros where `uuidgen` is lowercase by forcing uppercase. `awk '{print toupper($0)}'` Thanks [cbgbt](https://github.com/cbgbt).
 
 ## 0.4.0 - *9/22/2015*
 
