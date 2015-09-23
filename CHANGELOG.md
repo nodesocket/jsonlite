@@ -1,6 +1,12 @@
 CHANGELOG
 =========
 
+## 0.4.2 - *9/22/2015*
+
+- Changed the regular expression in function `is_valid_uuid` to `^[A-F0-9]{8}-[A-F0-9]{4}-[A-F0-9]{4}-[A-F0-9]{4}-[A-F0-9]{12}$`.
+
+- Changed test from 1,000 to 500 iterations.
+
 ## 0.4.1 - *9/22/2015*
 
 - Support distros where `uuidgen` is lowercase by forcing uppercase. `awk '{print toupper($0)}'` Thanks [cbgbt](https://github.com/cbgbt).

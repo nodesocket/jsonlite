@@ -72,7 +72,7 @@ Are you sure you want to drop '/jsonlite.data' (y/n)? y
 
 ````
 ➜ jsonlite version
-0.4.1
+0.4.2
 ````
 
 ## Changelog
