@@ -2,7 +2,7 @@
 
 set -e
 
-VERSION="0.4.2"
+VERSION="0.4.3"
 COMMAND=$1
 CWD=$(pwd);
 
@@ -29,9 +29,8 @@ case "$COMMAND" in
         # Is this portable across distros?
         UUID=$(uuidgen | awk '{print toupper($0)}')
 
-        # Piping to python -m json.tool to pretty print json is super expensive.
-        # What would be a good alternative?
-        echo "$2" | python -m json.tool > "$CWD/jsonlite.data/$UUID"
+        # Using json_reformat from YAJL to pretty print json.
+        echo "$2" | json_reformat > "$CWD/jsonlite.data/$UUID"
         echo "$UUID";
 
         ;;

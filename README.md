@@ -20,7 +20,7 @@ ln -s $PWD/jsonlite.sh /usr/local/bin/jsonlite
 
 1. bash
 2. uuidgen
-3. python -m json.tool
+3. YAJL's `json_reformat`
 
 ## API
 
@@ -72,7 +72,7 @@ Are you sure you want to drop '/jsonlite.data' (y/n)? y
 
 ````
 ➜ jsonlite version
-0.4.2
+0.4.3
 ````
 
 ## Changelog

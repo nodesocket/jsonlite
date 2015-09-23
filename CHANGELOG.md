@@ -1,6 +1,10 @@
 CHANGELOG
 =========
 
+## 0.4.3 - *9/23/2015*
+
+-  Using `json_reformat` from [YAJL](http://lloyd.github.io/yajl/yajl-2.0.1/reformatter_2json_reformat_8c-example.html) instead of `python -m json.tool` to pretty print json.
+
 ## 0.4.2 - *9/22/2015*
 
 - Changed the regular expression in function `is_valid_uuid` to `^[A-F0-9]{8}-[A-F0-9]{4}-[A-F0-9]{4}-[A-F0-9]{4}-[A-F0-9]{12}$`.
@@ -31,7 +35,7 @@ ln -s $PWD/jsonlite.sh /usr/local/bin/jsonlite
 
 - Now validates document id arguments passed into `get` and `delete` via regex. If invalid, a status code of **3** is returned. Closes [issue #1](https://github.com/nodesocket/jsonlite/issues/1).
 
-- Return status codes changed and standardized. 
+- Return status codes changed and standardized.
 
 ````
 0 => Success
