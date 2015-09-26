@@ -2,92 +2,105 @@
 set -eo pipefail; [[ $TRACE ]] && set -x
 
 VERSION="0.4.2"
-COMMAND=$1
 CWD=$(pwd);
 
-is_valid_uuid() {
-    if [[ "$1" =~ ^[A-F0-9]{8}-[A-F0-9]{4}-[A-F0-9]{4}-[A-F0-9]{4}-[A-F0-9]{12}$ ]]; then
-        echo true
-    fi
+json_is_valid_uuid() {
+  if [[ "$1" =~ ^[A-F0-9]{8}-[A-F0-9]{4}-[A-F0-9]{4}-[A-F0-9]{4}-[A-F0-9]{12}$ ]]; then
+    echo true
+  fi
 
-    echo false
+  echo false
 }
 
-case "$COMMAND" in
+json_set() {
+  local value="$1"
+  if [[ -z "$value" ]]; then
+    printf "Missing required argument json document"
+    exit 1;
+  fi
+
+  if [[ ! -d "$CWD/jsonlite.data" ]]; then
+    mkdir "$CWD/jsonlite.data"
+  fi
+
+  # Is this portable across distros?
+  UUID=$(uuidgen | awk '{print toupper($0)}')
+
+  # Piping to python -m json.tool to pretty print json is super expensive.
+  # What would be a good alternative?
+  echo "$value" | python -m json.tool > "$CWD/jsonlite.data/$UUID"
+  echo "$UUID";
+}
+
+json_get() {
+  local document_id="$1"
+  if [[ -z "$document_id" ]]; then
+    printf "Missing required argument document id"
+    exit 2;
+  fi
+
+  VALID=$(json_is_valid_uuid "$document_id")
+  if [[ "$VALID" = false ]]; then
+    printf "Invalid argument document id"
+    exit 3;
+  fi
+
+  if [[ -f "$CWD/jsonlite.data/$document_id" ]]; then
+    cat "$CWD/jsonlite.data/$document_id"
+  fi
+}
+
+json_delete() {
+  local document_id="$1"
+  if [[ -z "$document_id" ]]; then
+    printf "Missing required argument document id"
+    exit 2;
+  fi
+
+  VALID=$(json_is_valid_uuid "$document_id")
+  if [[ "$VALID" = false ]]; then
+    printf "Invalid argument document id"
+    exit 3;
+  fi
+
+  if [[ -f "$CWD/jsonlite.data/$document_id" ]]; then
+    rm -f "$CWD/jsonlite.data/$document_id"
+  fi
+}
+
+json_drop() {
+  if [[ -d "$CWD/jsonlite.data" ]]; then
+    read -p "Are you sure you want to drop '$CWD/jsonlite.data' (y/n)? " confirm
+    case "$confirm" in
+      # Do we need to guard against potentially naughty things here?
+      y|Y|yes|YES ) rm -rf "$CWD/jsonlite.data";;
+      * ) exit 4;;
+    esac
+  fi
+}
+
+main() {
+  COMMAND=$1
+  case "$COMMAND" in
     "set")
-
-        if [[ -z "$2" ]]; then
-            printf "Missing required argument json document"
-            exit 1;
-        fi
-
-        if [[ ! -d "$CWD/jsonlite.data" ]]; then
-            mkdir "$CWD/jsonlite.data"
-        fi
-
-        # Is this portable across distros?
-        UUID=$(uuidgen | awk '{print toupper($0)}')
-
-        # Piping to python -m json.tool to pretty print json is super expensive.
-        # What would be a good alternative?
-        echo "$2" | python -m json.tool > "$CWD/jsonlite.data/$UUID"
-        echo "$UUID";
-
-        ;;
+      json_set "$2"
+      ;;
 
     "get")
-
-        if [[ -z "$2" ]]; then
-            printf "Missing required argument document id"
-            exit 2;
-        fi
-
-        VALID=$(is_valid_uuid "$2")
-        if [[ "$VALID" = false ]]; then
-            printf "Invalid argument document id"
-            exit 3;
-        fi
-
-        if [[ -f "$CWD/jsonlite.data/$2" ]]; then
-            cat "$CWD/jsonlite.data/$2"
-        fi
-
-        ;;
+      json_get "$2"
+      ;;
 
     "delete")
-
-        if [[ -z "$2" ]]; then
-            printf "Missing required argument document id"
-            exit 2;
-        fi
-
-        VALID=$(is_valid_uuid "$2")
-        if [[ "$VALID" = false ]]; then
-            printf "Invalid argument document id"
-            exit 3;
-        fi
-
-        if [[ -f "$CWD/jsonlite.data/$2" ]]; then
-            rm -f "$CWD/jsonlite.data/$2"
-        fi
-
-        ;;
+      json_delete "$2"
+      ;;
 
     "drop")
-
-        if [[ -d "$CWD/jsonlite.data" ]]; then
-            read -p "Are you sure you want to drop '$CWD/jsonlite.data' (y/n)? " confirm
-            case "$confirm" in
-                # Do we need to guard against potentially naughty things here?
-                y|Y|yes|YES ) rm -rf "$CWD/jsonlite.data";;
-                * ) exit 4;;
-            esac
-        fi
-
-        ;;
+      json_drop
+      ;;
 
     "version")
+      printf "%s" "$VERSION"
+  esac
+}
 
-        printf "%s" "$VERSION"
-
-    esac
+[[ "$0" == "$BASH_SOURCE" ]] && main "$@"
