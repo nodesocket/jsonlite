@@ -21,7 +21,7 @@ ln -s $PWD/jsonlite.bash /usr/local/bin/jsonlite
 1. bash
 2. uuidgen
 3. python -m json.tool
-  - Alternatively, install `Yajl` for `json_reformat` *or* `jq` to get a roughly 3x performance improvement setting documents.
+  - Alternatively, install [Yajl](http://lloyd.github.io/yajl/) for `json_reformat` *or* `jq` to get a roughly 3x performance improvement setting documents.
 
 ## Configuration
 
@@ -42,7 +42,7 @@ export JSONLITE_PATH=/var/lib/app/config
 
 ### set
 
-> set \<json\> - Writes a json document and returns a document id
+> set \<json\> - Writes a json document and returns the document id
 
 ````shell
 ➜ jsonlite set '{"name":"John Doe","active":true,"permissions":{"read":true,"write":false}}'
@@ -104,7 +104,7 @@ Usage: JSONLite COMMAND <arguments>
   drop (--force)         Drops the database
   get <document-id>      Retrieves a json document by document id
   help                   Displays help
-  set <json>             Writes a json document and returns a document id
+  set <json>             Writes a json document and returns the document id
   version                Displays the current version
 
   For more information, see https://github.com/nodesocket/jsonlite
