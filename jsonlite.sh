@@ -4,7 +4,7 @@ set -eo pipefail; [[ $TRACE ]] && set -x
 VERSION="0.4.2"
 CWD=$(pwd);
 
-json_is_valid_uuid() {
+jsonlite_is_valid_uuid() {
   if [[ "$1" =~ ^[A-F0-9]{8}-[A-F0-9]{4}-[A-F0-9]{4}-[A-F0-9]{4}-[A-F0-9]{12}$ ]]; then
     echo true
   fi
@@ -12,7 +12,7 @@ json_is_valid_uuid() {
   echo false
 }
 
-json_set() {
+jsonlite_set() {
   local value="$1"
   if [[ -z "$value" ]]; then
     echo "Missing required argument json document" 1>&2
@@ -32,14 +32,14 @@ json_set() {
   echo "$UUID";
 }
 
-json_get() {
+jsonlite_get() {
   local document_id="$1"
   if [[ -z "$document_id" ]]; then
     echo "Missing required argument document id" 1>&2
     exit 2;
   fi
 
-  VALID=$(json_is_valid_uuid "$document_id")
+  VALID=$(jsonlite_is_valid_uuid "$document_id")
   if [[ "$VALID" = false ]]; then
     echo "Invalid argument document id" 1>&2
     exit 3;
@@ -50,14 +50,14 @@ json_get() {
   fi
 }
 
-json_delete() {
+jsonlite_delete() {
   local document_id="$1"
   if [[ -z "$document_id" ]]; then
     echo "Missing required argument document id" 1>&2
     exit 2;
   fi
 
-  VALID=$(json_is_valid_uuid "$document_id")
+  VALID=$(jsonlite_is_valid_uuid "$document_id")
   if [[ "$VALID" = false ]]; then
     echo "Invalid argument document id" 1>&2
     exit 3;
@@ -68,7 +68,7 @@ json_delete() {
   fi
 }
 
-json_drop() {
+jsonlite_drop() {
   if [[ -d "$CWD/jsonlite.data" ]]; then
     read -p "Are you sure you want to drop '$CWD/jsonlite.data' (y/n)? " confirm
     case "$confirm" in
@@ -83,19 +83,19 @@ main() {
   COMMAND=$1
   case "$COMMAND" in
     "set")
-      json_set "$2"
+      jsonlite_set "$2"
       ;;
 
     "get")
-      json_get "$2"
+      jsonlite_get "$2"
       ;;
 
     "delete")
-      json_delete "$2"
+      jsonlite_delete "$2"
       ;;
 
     "drop")
-      json_drop
+      jsonlite_drop
       ;;
 
     "version")
