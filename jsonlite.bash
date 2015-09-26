@@ -34,10 +34,10 @@ EOF
 
 jsonlite_is_valid_uuid() {
   if [[ "$1" =~ ^[A-F0-9]{8}-[A-F0-9]{4}-[A-F0-9]{4}-[A-F0-9]{4}-[A-F0-9]{12}$ ]]; then
-    echo true
+    return 0
   fi
 
-  echo false
+  return 1
 }
 
 jsonlite_set() {
@@ -67,8 +67,7 @@ jsonlite_get() {
     exit 2;
   fi
 
-  VALID=$(jsonlite_is_valid_uuid "$document_id")
-  if [[ "$VALID" = false ]]; then
+  if ! jsonlite_is_valid_uuid "$document_id"; then
     echo "Invalid argument document id" 1>&2
     exit 3;
   fi
@@ -85,8 +84,7 @@ jsonlite_delete() {
     exit 2;
   fi
 
-  VALID=$(jsonlite_is_valid_uuid "$document_id")
-  if [[ "$VALID" = false ]]; then
+  if ! jsonlite_is_valid_uuid "$document_id"; then
     echo "Invalid argument document id" 1>&2
     exit 3;
   fi
