@@ -52,9 +52,13 @@ jsonlite_set() {
   # Is this portable across distros?
   UUID=$(uuidgen | awk '{print toupper($0)}')
 
-  # Piping to python -m json.tool to pretty print json is super expensive.
-  # What would be a good alternative?
-  echo "$value" | python -m json.tool > "$JSONLITE_PATH/$UUID"
+  if command -v json_reformat > /dev/null 2>&1; then
+    echo "$value" | json_reformat > "$JSONLITE_PATH/$UUID"
+  else
+    # fallback to slower json.tool
+    echo "$value" | python -m json.tool > "$JSONLITE_PATH/$UUID"
+  fi
+
   echo "$UUID";
 }
 
