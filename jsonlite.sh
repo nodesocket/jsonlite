@@ -140,4 +140,6 @@ main() {
   esac
 }
 
-[[ "$0" == "$BASH_SOURCE" ]] && main "$@"
+if [[ "$0" == "$BASH_SOURCE" ]]; then
+  main "$@"
+fi
