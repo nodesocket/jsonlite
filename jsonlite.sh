@@ -6,8 +6,8 @@ VERSION="0.4.2"
 COMMAND=$1
 CWD=$(pwd);
 
-function is_valid_uuid {
-    if [[ $1 =~ ^[A-F0-9]{8}-[A-F0-9]{4}-[A-F0-9]{4}-[A-F0-9]{4}-[A-F0-9]{12}$ ]]; then
+is_valid_uuid() {
+    if [[ "$1" =~ ^[A-F0-9]{8}-[A-F0-9]{4}-[A-F0-9]{4}-[A-F0-9]{4}-[A-F0-9]{12}$ ]]; then
         echo true
     fi
 
