@@ -1,10 +1,8 @@
 #!/usr/bin/env bash
 set -eo pipefail; [[ $TRACE ]] && set -x
 
-VERSION="0.4.2"
-CWD=$(pwd);
-
-export JSONLITE_PATH=${JSONLITE_PATH:="$CWD/jsonlite.data"}
+readonly VERSION="0.4.2"
+export JSONLITE_PATH=${JSONLITE_PATH:="$PWD/jsonlite.data"}
 
 
 jsonlite_version() {
