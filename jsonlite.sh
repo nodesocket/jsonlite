@@ -4,6 +4,9 @@ set -eo pipefail; [[ $TRACE ]] && set -x
 VERSION="0.4.2"
 CWD=$(pwd);
 
+export JSONLITE_PATH=${JSONLITE_PATH:="$CWD/jsonlite.data"}
+
+
 jsonlite_version() {
   echo "jsonlite $VERSION"
 }
@@ -44,8 +47,8 @@ jsonlite_set() {
     exit 1;
   fi
 
-  if [[ ! -d "$CWD/jsonlite.data" ]]; then
-    mkdir "$CWD/jsonlite.data"
+  if [[ ! -d "$JSONLITE_PATH" ]]; then
+    mkdir -p "$JSONLITE_PATH"
   fi
 
   # Is this portable across distros?
@@ -53,7 +56,7 @@ jsonlite_set() {
 
   # Piping to python -m json.tool to pretty print json is super expensive.
   # What would be a good alternative?
-  echo "$value" | python -m json.tool > "$CWD/jsonlite.data/$UUID"
+  echo "$value" | python -m json.tool > "$JSONLITE_PATH/$UUID"
   echo "$UUID";
 }
 
@@ -70,8 +73,8 @@ jsonlite_get() {
     exit 3;
   fi
 
-  if [[ -f "$CWD/jsonlite.data/$document_id" ]]; then
-    cat "$CWD/jsonlite.data/$document_id"
+  if [[ -f "$JSONLITE_PATH/$document_id" ]]; then
+    cat "$JSONLITE_PATH/$document_id"
   fi
 }
 
@@ -88,17 +91,17 @@ jsonlite_delete() {
     exit 3;
   fi
 
-  if [[ -f "$CWD/jsonlite.data/$document_id" ]]; then
-    rm -f "$CWD/jsonlite.data/$document_id"
+  if [[ -f "$JSONLITE_PATH/$document_id" ]]; then
+    rm -f "$JSONLITE_PATH/$document_id"
   fi
 }
 
 jsonlite_drop() {
-  if [[ -d "$CWD/jsonlite.data" ]]; then
-    read -p "Are you sure you want to drop '$CWD/jsonlite.data' (y/n)? " confirm
+  if [[ -d "$JSONLITE_PATH" ]]; then
+    read -p "Are you sure you want to drop '$JSONLITE_PATH' (y/n)? " confirm
     case "$confirm" in
       # Do we need to guard against potentially naughty things here?
-      y|Y|yes|YES ) rm -rf "$CWD/jsonlite.data";;
+      y|Y|yes|YES ) rm -rf "$JSONLITE_PATH";;
       * ) exit 4;;
     esac
   fi

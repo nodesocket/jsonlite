@@ -22,6 +22,21 @@ ln -s $PWD/jsonlite.sh /usr/local/bin/jsonlite
 2. uuidgen
 3. python -m json.tool
 
+## Configuration
+
+You may optionally set the full path on disk to the `jsonlite.data` directory. This defaults to `$(pwd)/jsonlite.data` and can be set as follows:
+
+```shell
+# the default
+export JSONLITE_PATH=$(pwd)/jsonlite.data
+
+# write it to a temp file
+export JSONLITE_PATH=/tmp/jsonlite.data
+
+# write it to your app's config directory
+export JSONLITE_PATH=/var/lib/app/config
+```
+
 ## API
 
 ### set
