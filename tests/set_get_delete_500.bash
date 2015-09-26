@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 set -eo pipefail; [[ $TRACE ]] && set -x
 
+export JSONLITE_PATH="$(dirname "$0")/jsonlite.data"
 source "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/../jsonlite.bash"
 ITERATIONS=500
 
@@ -11,3 +12,5 @@ for i in $(seq 1 $ITERATIONS); do
   jsonlite_get "$ID"
   jsonlite_delete "$ID"
 done
+
+jsonlite_drop --force
