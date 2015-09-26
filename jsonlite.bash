@@ -54,6 +54,9 @@ jsonlite_set() {
 
   if command -v json_reformat > /dev/null 2>&1; then
     echo "$value" | json_reformat > "$JSONLITE_PATH/$UUID"
+  elif command -v jq > /dev/null 2>&1; then
+    # use the not-as-fast jq library if available
+    echo "$value" | jq '.' > "$JSONLITE_PATH/$UUID"
   else
     # fallback to slower json.tool
     echo "$value" | python -m json.tool > "$JSONLITE_PATH/$UUID"

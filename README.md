@@ -20,7 +20,8 @@ ln -s $PWD/jsonlite.bash /usr/local/bin/jsonlite
 
 1. bash
 2. uuidgen
-3. python -m json.tool (or `json_reformat` for a performance boost)
+3. python -m json.tool
+  - Alternatively, install `Yajl` for `json_reformat` *or* `jq` to get a roughly 3x performance boost.
 
 ## Configuration
 
