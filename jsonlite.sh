@@ -17,12 +17,12 @@ function is_valid_uuid {
 case "$COMMAND" in
     "set")
 
-        if [ -z "$2" ]; then
+        if [[ -z "$2" ]]; then
             printf "Missing required argument json document"
             exit 1;
         fi
 
-        if [ ! -d "$CWD/jsonlite.data" ]; then
+        if [[ ! -d "$CWD/jsonlite.data" ]]; then
             mkdir "$CWD/jsonlite.data"
         fi
 
@@ -38,18 +38,18 @@ case "$COMMAND" in
 
     "get")
 
-        if [ -z "$2" ]; then
+        if [[ -z "$2" ]]; then
             printf "Missing required argument document id"
             exit 2;
         fi
 
         VALID=$(is_valid_uuid "$2")
-        if [ "$VALID" = false ]; then
+        if [[ "$VALID" = false ]]; then
             printf "Invalid argument document id"
             exit 3;
         fi
 
-        if [ -f "$CWD/jsonlite.data/$2" ]; then
+        if [[ -f "$CWD/jsonlite.data/$2" ]]; then
             cat "$CWD/jsonlite.data/$2"
         fi
 
@@ -57,18 +57,18 @@ case "$COMMAND" in
 
     "delete")
 
-        if [ -z "$2" ]; then
+        if [[ -z "$2" ]]; then
             printf "Missing required argument document id"
             exit 2;
         fi
 
         VALID=$(is_valid_uuid "$2")
-        if [ "$VALID" = false ]; then
+        if [[ "$VALID" = false ]]; then
             printf "Invalid argument document id"
             exit 3;
         fi
 
-        if [ -f "$CWD/jsonlite.data/$2" ]; then
+        if [[ -f "$CWD/jsonlite.data/$2" ]]; then
             rm -f "$CWD/jsonlite.data/$2"
         fi
 
@@ -76,7 +76,7 @@ case "$COMMAND" in
 
     "drop")
 
-        if [ -d "$CWD/jsonlite.data" ]; then
+        if [[ -d "$CWD/jsonlite.data" ]]; then
             read -p "Are you sure you want to drop '$CWD/jsonlite.data' (y/n)? " confirm
             case "$confirm" in
                 # Do we need to guard against potentially naughty things here?
