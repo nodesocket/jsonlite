@@ -95,7 +95,7 @@ Are you sure you want to drop '/jsonlite.data' (y/n)? y
 
 > help - Displays help
 
-````shell
+````
 ➜ jsonlite help
 JSONLite 0.6.0
 Usage: JSONLite COMMAND <arguments>
