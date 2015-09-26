@@ -13,7 +13,7 @@ JSONlite is a proof of concept, and it may not make any sense to actually use it
 ```
 git clone https://github.com/nodesocket/jsonlite.git
 cd jsonlite
-ln -s $PWD/jsonlite.sh /usr/local/bin/jsonlite
+ln -s $PWD/jsonlite.bash /usr/local/bin/jsonlite
 ```
 
 ## Requirements
