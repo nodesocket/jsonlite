@@ -15,7 +15,7 @@ json_is_valid_uuid() {
 json_set() {
   local value="$1"
   if [[ -z "$value" ]]; then
-    printf "Missing required argument json document"
+    echo "Missing required argument json document" 1>&2
     exit 1;
   fi
 
@@ -35,13 +35,13 @@ json_set() {
 json_get() {
   local document_id="$1"
   if [[ -z "$document_id" ]]; then
-    printf "Missing required argument document id"
+    echo "Missing required argument document id" 1>&2
     exit 2;
   fi
 
   VALID=$(json_is_valid_uuid "$document_id")
   if [[ "$VALID" = false ]]; then
-    printf "Invalid argument document id"
+    echo "Invalid argument document id" 1>&2
     exit 3;
   fi
 
@@ -53,13 +53,13 @@ json_get() {
 json_delete() {
   local document_id="$1"
   if [[ -z "$document_id" ]]; then
-    printf "Missing required argument document id"
+    echo "Missing required argument document id" 1>&2
     exit 2;
   fi
 
   VALID=$(json_is_valid_uuid "$document_id")
   if [[ "$VALID" = false ]]; then
-    printf "Invalid argument document id"
+    echo "Invalid argument document id" 1>&2
     exit 3;
   fi
 
