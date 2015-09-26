@@ -47,7 +47,7 @@ ln -s $PWD/jsonlite.sh /usr/local/bin/jsonlite
 
 - Return status codes changed and standardized. 
 
-````shell
+````
 0 => Success
 1 => Missing required argument json document
 2 => Missing required argument document id
