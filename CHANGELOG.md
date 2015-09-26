@@ -1,6 +1,20 @@
 CHANGELOG
 =========
 
+## 0.6.0 - *9/26/2015* Thanks [josegonzalez](https://github.com/josegonzalez).
+
+- You can now define where the data directory path is using the `JSONLITE_PATH` environment variable. It defaults to the existing path, `$(pwd)/jsonlite.data`.
+
+- JSONLite has been transformed such that it can be used as a library. To do so, simply source in all the methods at the top of your script.
+
+- Support for `json_reformat` and `jq` pretty printing when setting. JSONLite will automatically detect if you have either, if not, it falls back to `python -m json.tool`. `json_reformat` and `jq` provide roughly a 3x performance improvement setting documents.
+
+- Added help command.
+
+- Bashisms and best practice cleanup.
+
+- Added `Makefile` and `.travis.yml`
+
 ## 0.4.2 - *9/22/2015*
 
 - Changed the regular expression in function `is_valid_uuid` to `^[A-F0-9]{8}-[A-F0-9]{4}-[A-F0-9]{4}-[A-F0-9]{4}-[A-F0-9]{12}$`.
@@ -21,7 +35,7 @@ CHANGELOG
 
 - Updated the installation section in `README.md` related to creating the symbolic link. The new `ln` command is:
 
-````
+````shell
 ln -s $PWD/jsonlite.sh /usr/local/bin/jsonlite
 ````
 
@@ -33,7 +47,7 @@ ln -s $PWD/jsonlite.sh /usr/local/bin/jsonlite
 
 - Return status codes changed and standardized. 
 
-````
+````shell
 0 => Success
 1 => Missing required argument json document
 2 => Missing required argument document id
