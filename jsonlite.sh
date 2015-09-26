@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
-
-set -e
+set -eo pipefail; [[ $TRACE ]] && set -x
 
 VERSION="0.4.2"
 COMMAND=$1
