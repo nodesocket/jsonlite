@@ -4,6 +4,31 @@ set -eo pipefail; [[ $TRACE ]] && set -x
 VERSION="0.4.2"
 CWD=$(pwd);
 
+jsonlite_version() {
+  echo "jsonlite $VERSION"
+}
+
+jsonlite_usage() {
+  jsonlite_version
+  echo "Usage: jsonlite COMMAND <command-specific-options>"
+}
+
+jsonlite_help() {
+  jsonlite_usage
+  echo
+  cat<<EOF | sort | column -c2 -t -s,
+  set <json>, Writes the json document and returns a document-id
+  get <document-id>, Retrieves a json document by document-id
+  delete <document-id>, Deletes a json document by document-id
+  drop, Drops the jsonlite database
+  help, Display this help message
+  version, Display the version number
+EOF
+  echo
+  echo "  For more information, see https://github.com/nodesocket/jsonlite"
+  echo
+}
+
 jsonlite_is_valid_uuid() {
   if [[ "$1" =~ ^[A-F0-9]{8}-[A-F0-9]{4}-[A-F0-9]{4}-[A-F0-9]{4}-[A-F0-9]{12}$ ]]; then
     echo true
@@ -99,7 +124,16 @@ main() {
       ;;
 
     "version")
-      printf "%s" "$VERSION"
+      jsonlite_version
+      ;;
+
+    "help")
+      jsonlite_help
+      ;;
+
+    *)
+      jsonlite_help >&2
+      exit 1
   esac
 }
 
