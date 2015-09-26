@@ -10,7 +10,7 @@ jsonlite_version() {
 
 jsonlite_usage() {
   jsonlite_version
-  echo "Usage: JSONLite COMMAND <arguments>"
+  echo "Usage: JSONLite COMMAND <command-specific-options>"
 }
 
 jsonlite_help() {
