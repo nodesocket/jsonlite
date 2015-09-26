@@ -97,14 +97,21 @@ jsonlite_delete() {
 }
 
 jsonlite_drop() {
-  if [[ -d "$JSONLITE_PATH" ]]; then
-    read -p "Are you sure you want to drop '$JSONLITE_PATH' (y/n)? " confirm
-    case "$confirm" in
-      # Do we need to guard against potentially naughty things here?
-      y|Y|yes|YES ) rm -rf "$JSONLITE_PATH";;
-      * ) exit 4;;
-    esac
+  if [[ ! -d "$JSONLITE_PATH" ]]; then
+    return $?
   fi
+
+  if [[ "$1" == "--force" ]]; then
+    rm -rf "$JSONLITE_PATH"
+    return $?
+  fi
+
+  read -p "Are you sure you want to drop '$JSONLITE_PATH' (y/n)? " confirm
+  case "$confirm" in
+    # Do we need to guard against potentially naughty things here?
+    y|Y|yes|YES ) rm -rf "$JSONLITE_PATH";;
+    * ) exit 4;;
+  esac
 }
 
 main() {
@@ -124,7 +131,7 @@ main() {
       ;;
 
     "drop")
-      jsonlite_drop
+      jsonlite_drop "$@"
       ;;
 
     "version")
