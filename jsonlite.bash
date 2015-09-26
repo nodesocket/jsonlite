@@ -114,7 +114,7 @@ jsonlite_drop() {
   esac
 }
 
-main() {
+jsonlite_main() {
   local COMMAND="$1"
   shift 1
   case "$COMMAND" in
@@ -149,5 +149,5 @@ main() {
 }
 
 if [[ "$0" == "$BASH_SOURCE" ]]; then
-  main "$@"
+  jsonlite_main "$@"
 fi
