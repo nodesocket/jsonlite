@@ -3,6 +3,7 @@ set -eo pipefail; [[ $TRACE ]] && set -x
 
 export JSONLITE_PATH="$(dirname "$0")/jsonlite.data"
 source "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/../jsonlite.bash"
+
 ITERATIONS=500
 
 jsonlite_drop --force

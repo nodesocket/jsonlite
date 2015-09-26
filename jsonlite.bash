@@ -1,29 +1,28 @@
 #!/usr/bin/env bash
 set -eo pipefail; [[ $TRACE ]] && set -x
 
-readonly VERSION="0.4.2"
+readonly VERSION="0.6.0"
 export JSONLITE_PATH=${JSONLITE_PATH:="$PWD/jsonlite.data"}
 
-
 jsonlite_version() {
-  echo "jsonlite $VERSION"
+  echo "JSONLite $VERSION"
 }
 
 jsonlite_usage() {
   jsonlite_version
-  echo "Usage: jsonlite COMMAND <command-specific-options>"
+  echo "Usage: JSONLite COMMAND <command-specific-options>"
 }
 
 jsonlite_help() {
   jsonlite_usage
   echo
   cat<<EOF | sort | column -c2 -t -s,
-  set <json>, Writes the json document and returns a document-id
-  get <document-id>, Retrieves a json document by document-id
-  delete <document-id>, Deletes a json document by document-id
-  drop, Drops the jsonlite database
-  help, Display this help message
-  version, Display the version number
+  set <json>, Writes a json document and returns a document id
+  get <document-id>, Retrieves a json document by document id
+  delete <document-id>, Deletes a json document by document id
+  drop (--force), Drops the database
+  help, Displays help
+  version, Displays the current version
 EOF
   echo
   echo "  For more information, see https://github.com/nodesocket/jsonlite"
