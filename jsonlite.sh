@@ -108,18 +108,19 @@ jsonlite_drop() {
 }
 
 main() {
-  COMMAND=$1
+  local COMMAND="$1"
+  shift 1
   case "$COMMAND" in
     "set")
-      jsonlite_set "$2"
+      jsonlite_set "$@"
       ;;
 
     "get")
-      jsonlite_get "$2"
+      jsonlite_get "$@"
       ;;
 
     "delete")
-      jsonlite_delete "$2"
+      jsonlite_delete "$@"
       ;;
 
     "drop")
