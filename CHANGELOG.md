@@ -1,6 +1,10 @@
 CHANGELOG
 =========
 
+## 0.6.1 - *9/26/2015*
+
+- Documentation cleanup. No code changes. 
+
 ## 0.6.0 - *9/26/2015* - thanks [josegonzalez](https://github.com/josegonzalez).
 
 - You can now define where the data directory path is using the `JSONLITE_PATH` environment variable. It defaults to the existing path, `$(pwd)/jsonlite.data`.

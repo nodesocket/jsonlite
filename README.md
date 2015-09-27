@@ -88,7 +88,7 @@ Are you sure you want to drop '/jsonlite.data' (y/n)? y
 
 ````shell
 ➜ jsonlite version
-0.6.0
+0.6.1
 ````
 
 #### help
@@ -97,7 +97,7 @@ Are you sure you want to drop '/jsonlite.data' (y/n)? y
 
 ````
 ➜ jsonlite help
-JSONLite 0.6.0
+JSONLite 0.6.1
 Usage: JSONLite COMMAND <arguments>
 
   delete <document-id>   Deletes a json document by document id
