@@ -28,14 +28,11 @@ ln -s $PWD/jsonlite.bash /usr/local/bin/jsonlite
 You may optionally set the full path to the data directory. It defaults to `$(pwd)/jsonlite.data` and can be set as follows:
 
 ```shell
-# the default
+# default
 export JSONLITE_PATH=$(pwd)/jsonlite.data
 
-# write it to a temp file
+# in temp
 export JSONLITE_PATH=/tmp/jsonlite.data
-
-# write it to your app's config directory
-export JSONLITE_PATH=/var/lib/app/config
 ```
 
 ## API
