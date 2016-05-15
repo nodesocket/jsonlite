@@ -21,7 +21,7 @@ ln -s $PWD/jsonlite.bash /usr/local/bin/jsonlite
 
 ## Configuration
 
-You may optionally set the full path to the data directory. It defaults to `$PWD/jsonlite.data` and can be set as follows:
+You may optionally set the path to the data directory. It defaults to `$PWD/jsonlite.data` but can manually be set with the `JSONLITE_PATH` environment variable.
 
 ```shell
 # default
