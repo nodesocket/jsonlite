@@ -1,6 +1,10 @@
 CHANGELOG
 =========
 
+## 0.7.1 - *5/15/2016*
+
+- Running `jsonlite` with no command prints the current version and `JSONLITE_PATH` environment variable.
+
 ## 0.7.0 - *5/14/2016*
 
 - Added a new command `count` which prints the total number of json documents in the database.

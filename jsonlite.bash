@@ -18,20 +18,21 @@
 
 set -eo pipefail; [[ $TRACE ]] && set -x
 
-readonly VERSION="0.7.0"
+readonly VERSION="0.7.1"
 export JSONLITE_PATH=${JSONLITE_PATH:="$PWD/jsonlite.data"}
 
 jsonlite_version() {
   echo "JSONlite $VERSION"
 }
 
-jsonlite_usage() {
+jsonlite_info() {
   jsonlite_version
-  echo "Usage: jsonlite command <command-specific-options>"
+  echo "JSONLITE_PATH=$JSONLITE_PATH"
+  echo
 }
 
 jsonlite_help() {
-  jsonlite_usage
+  echo "Usage: jsonlite command <command-specific-options>"
   echo
   cat<<EOF | column -c2 -t -s,
   set <json>, Writes a json document and returns a document id
@@ -150,6 +151,7 @@ jsonlite_main() {
   local COMMAND="$1"
 
   if [[ -z $COMMAND ]]; then
+      jsonlite_info
       jsonlite_help
       exit 0
   fi

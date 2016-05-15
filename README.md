@@ -31,7 +31,7 @@ export JSONLITE_PATH=$PWD/jsonlite.data
 export JSONLITE_PATH=/tmp/jsonlite.data
 ```
 
-## API
+## API/COMMANDS
 
 ### set
 
@@ -88,22 +88,12 @@ Drop database '/jsonlite.data'? [Y/n] Y
 ➜ jsonlite drop --force
 ````
 
-### version
-
-> version - Displays the current version
-
-````shell
-➜ jsonlite version
-0.7.0
-````
-
 #### help
 
 > help - Displays help
 
 ````
 ➜ jsonlite help
-JSONlite 0.7.0
 Usage: jsonlite command <command-specific-options>
 
   set <json>             Writes a json document and returns a document id
@@ -116,6 +106,15 @@ Usage: jsonlite command <command-specific-options>
 
   For more information, see https://github.com/nodesocket/jsonlite
 
+````
+
+### version
+
+> version - Displays the current version
+
+````shell
+➜ jsonlite version
+0.7.1
 ````
 
 ## Changelog
