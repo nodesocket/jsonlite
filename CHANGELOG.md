@@ -14,6 +14,8 @@ cat foobar.json | jsonlite set
 9DF4DC1F-121E-46DC-B580-E1663B645AED
 ````
 
+- Documentation cleanup.
+
 ## 0.7.1 - *5/15/2016*
 
 - Running `jsonlite` with no command displays the current version, `JSONLITE_PATH` environment variable, and invokes the `help` command.
