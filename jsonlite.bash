@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -eo pipefail; [[ $TRACE ]] && set -x
 
-readonly VERSION="0.6.3"
+readonly VERSION="0.7.0"
 export JSONLITE_PATH=${JSONLITE_PATH:="$PWD/jsonlite.data"}
 
 jsonlite_version() {
@@ -16,9 +16,10 @@ jsonlite_usage() {
 jsonlite_help() {
   jsonlite_usage
   echo
-  cat<<EOF | sort | column -c2 -t -s,
+  cat<<EOF | column -c2 -t -s,
   set <json>, Writes a json document and returns a document id
   get <document-id>, Retrieves a json document by document id
+  count, Total number of json documents in the database
   delete <document-id>, Deletes a json document by document id
   drop (--force), Drops the database
   help, Displays help
@@ -41,7 +42,7 @@ jsonlite_set() {
   local value="$1"
   if [[ -z "$value" ]]; then
     echo "Missing required argument json document" 1>&2
-    exit 1;
+    exit 4
   fi
 
   if [[ ! -d "$JSONLITE_PATH" ]]; then
@@ -49,31 +50,32 @@ jsonlite_set() {
   fi
 
   # Is this portable across distros?
-  UUID=$(uuidgen | awk '{print toupper($0)}')
+  local uuid
+  uuid=$(uuidgen | awk '{print toupper($0)}')
 
   if command -v json_reformat > /dev/null 2>&1; then
-    echo "$value" | json_reformat > "$JSONLITE_PATH/$UUID"
+    echo "$value" | json_reformat > "$JSONLITE_PATH/$uuid"
   elif command -v jq > /dev/null 2>&1; then
     # use the not-as-fast jq library if available
-    echo "$value" | jq '.' > "$JSONLITE_PATH/$UUID"
+    echo "$value" | jq '.' > "$JSONLITE_PATH/$uuid"
   else
     # fallback to the slowest json.tool
-    echo "$value" | python -m json.tool > "$JSONLITE_PATH/$UUID"
+    echo "$value" | python -m json.tool > "$JSONLITE_PATH/$uuid"
   fi
 
-  echo "$UUID";
+  echo "$uuid"
 }
 
 jsonlite_get() {
   local document_id="$1"
   if [[ -z "$document_id" ]]; then
     echo "Missing required argument document id" 1>&2
-    exit 2;
+    exit 5
   fi
 
   if ! jsonlite_is_valid_uuid "$document_id"; then
     echo "Invalid argument document id" 1>&2
-    exit 3;
+    exit 6
   fi
 
   if [[ -f "$JSONLITE_PATH/$document_id" ]]; then
@@ -81,16 +83,29 @@ jsonlite_get() {
   fi
 }
 
+jsonlite_count() {
+  if [[ ! -d "$JSONLITE_PATH" ]]; then
+    echo 0
+    exit 0
+  fi
+
+  local count
+  count=$(find "$JSONLITE_PATH" -type f | wc -l)
+
+  # piping to xargs is a trick to trim (remove leading and trailing whitespace)
+  echo "$count" | xargs
+}
+
 jsonlite_delete() {
   local document_id="$1"
   if [[ -z "$document_id" ]]; then
     echo "Missing required argument document id" 1>&2
-    exit 2;
+    exit 5
   fi
 
   if ! jsonlite_is_valid_uuid "$document_id"; then
     echo "Invalid argument document id" 1>&2
-    exit 3;
+    exit 6
   fi
 
   if [[ -f "$JSONLITE_PATH/$document_id" ]]; then
@@ -113,12 +128,18 @@ jsonlite_drop() {
   case "$confirm" in
     # Do we need to guard against potentially naughty things here?
     y|Y|yes|YES ) rm -rf "$JSONLITE_PATH";;
-    * ) exit 4;;
+    * ) exit 7;;
   esac
 }
 
 jsonlite_main() {
   local COMMAND="$1"
+
+  if [[ -z $COMMAND ]]; then
+      jsonlite_help
+      exit 0
+  fi
+
   shift 1
   case "$COMMAND" in
     "set")
@@ -127,6 +148,10 @@ jsonlite_main() {
 
     "get")
       jsonlite_get "$@"
+      ;;
+
+    "count")
+      jsonlite_count
       ;;
 
     "delete")
@@ -147,7 +172,7 @@ jsonlite_main() {
 
     *)
       jsonlite_help >&2
-      exit 1
+      exit 3
   esac
 }
 

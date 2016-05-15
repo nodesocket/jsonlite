@@ -29,9 +29,6 @@ export JSONLITE_PATH=$PWD/jsonlite.data
 
 # to temp
 export JSONLITE_PATH=/tmp/jsonlite.data
-
-# to your app
-export JSONLITE_PATH=/var/lib/my-app
 ```
 
 ## API
@@ -61,6 +58,15 @@ export JSONLITE_PATH=/var/lib/my-app
 }
 ````
 
+### count
+
+> count - Total number of json documents in the database
+
+````shell
+➜ jsonlite count
+21
+````
+
 ### delete
 
 > delete \<document-id\> - Deletes a json document by document id
@@ -84,7 +90,7 @@ Are you sure you want to drop '/jsonlite.data' (y/n)? y
 
 ````shell
 ➜ jsonlite version
-0.6.3
+0.7.0
 ````
 
 #### help
@@ -93,17 +99,19 @@ Are you sure you want to drop '/jsonlite.data' (y/n)? y
 
 ````
 ➜ jsonlite help
-JSONlite 0.6.3
+JSONlite 0.7.0
 Usage: jsonlite command <command-specific-options>
 
+  set <json>             Writes a json document and returns a document id
+  get <document-id>      Retrieves a json document by document id
+  count                  Total number of json documents in the database
   delete <document-id>   Deletes a json document by document id
   drop (--force)         Drops the database
-  get <document-id>      Retrieves a json document by document id
   help                   Displays help
-  set <json>             Writes a json document and returns the document id
   version                Displays the current version
 
   For more information, see https://github.com/nodesocket/jsonlite
+
 ````
 
 ## Changelog

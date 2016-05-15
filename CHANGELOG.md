@@ -1,13 +1,29 @@
 CHANGELOG
 =========
 
+## 0.7.0 - *5/14/2016*
+
+- Added a new command `count` which prints the total number of json documents in the database.
+- Return exit codes changed to ovoid using `1` and `2` which are reserved.
+
+````
+0 => Success
+3 => Invalid command
+4 => Missing required argument json document
+5 => Missing required argument document id
+6 => Invalid argument document id
+7 => Failure confirming destroy
+````
+
+- Added a new test `tests/set_500.bash`
+
 ## 0.6.3 - *5/14/2016*
 
 - Documentation cleanup. No code changes.
 
 ## 0.6.2 - *5/14/2016*
 
-- Globally replaced text JSONLite to JSONlite **(lowercase l)**.
+- Globally replaced text JSONLite to JSONlite *(lowercase l)*.
 - Shellcheck and cleanup.
 - Documentation cleanup.
 
@@ -55,11 +71,11 @@ ln -s $PWD/jsonlite.sh /usr/local/bin/jsonlite
 
 ## 0.2.0 - *9/21/2015*
 
-- `get` and `delete` are now idempotent. For example, if you call `get` and pass a uuid that doesn't exist, no error code is returned. Instead a **0** status code is returned and nothing is written to `stdout`.
+- `get` and `delete` are now idempotent. For example, if you call `get` and pass a uuid that doesn't exist, no error code is returned. Instead a **0** exit code is returned and nothing is written to `stdout`.
 
-- Now validates document id arguments passed into `get` and `delete` via regex. If invalid, a status code of **3** is returned. Closes [issue #1](https://github.com/nodesocket/jsonlite/issues/1).
+- Now validates document id arguments passed into `get` and `delete` via regex. If invalid, a exit code of **3** is returned. Closes [issue #1](https://github.com/nodesocket/jsonlite/issues/1).
 
-- Return status codes changed and standardized. 
+- Return exit codes changed and standardized. 
 
 ````
 0 => Success
