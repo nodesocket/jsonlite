@@ -42,6 +42,17 @@ export JSONLITE_PATH=/tmp/jsonlite.data
 666B81D6-3F8A-4D57-BA3F-11FA8FC47246
 ````
 
+`set` also supports piping into it:
+
+````shell
+echo '{"key":"value"}' | jsonlite set
+4472B861-4C10-4C0A-A63B-E5D45AA679C0
+````
+````shell
+cat foobar.json | jsonlite set
+9DF4DC1F-121E-46DC-B580-E1663B645AED
+````
+
 ### get
 
 > get \<document-id\> - Retrieves a json document by document id
@@ -84,7 +95,7 @@ export JSONLITE_PATH=/tmp/jsonlite.data
 Drop database '/jsonlite.data'? [Y/n] Y
 ````
 
-````
+````shell
 ➜ jsonlite drop --force
 ````
 
@@ -114,7 +125,7 @@ Usage: jsonlite command <command-specific-options>
 
 ````shell
 ➜ jsonlite version
-0.7.1
+0.8.0
 ````
 
 ## Changelog

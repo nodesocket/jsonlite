@@ -18,7 +18,7 @@
 
 set -eo pipefail; [[ $TRACE ]] && set -x
 
-readonly VERSION="0.7.1"
+readonly VERSION="0.8.0"
 export JSONLITE_PATH=${JSONLITE_PATH:="$PWD/jsonlite.data"}
 
 jsonlite_version() {
@@ -58,6 +58,13 @@ jsonlite_is_valid_uuid() {
 
 jsonlite_set() {
   local value="$1"
+
+  if [[ -z "$value" && ! -t 0 ]]; then
+    while read -r piped; do
+      value+=$piped
+    done;
+  fi
+
   if [[ -z "$value" ]]; then
     echo "Missing required argument json document" 1>&2
     exit 4

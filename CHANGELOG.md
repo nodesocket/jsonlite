@@ -1,6 +1,19 @@
 CHANGELOG
 =========
 
+## 0.8.0 - *5/15/2016*
+
+- The `set` command now supports piping into it. Closes [issue #14](https://github.com/nodesocket/jsonlite/issues/14).
+
+````shell
+echo '{"key":"value"}' | jsonlite set
+4472B861-4C10-4C0A-A63B-E5D45AA679C0
+````
+````shell
+cat foobar.json | jsonlite set
+9DF4DC1F-121E-46DC-B580-E1663B645AED
+````
+
 ## 0.7.1 - *5/15/2016*
 
 - Running `jsonlite` with no command displays the current version, `JSONLITE_PATH` environment variable, and invokes the `help` command.
