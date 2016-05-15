@@ -31,7 +31,7 @@ export JSONLITE_PATH=$PWD/jsonlite.data
 export JSONLITE_PATH=/tmp/jsonlite.data
 ```
 
-## API/COMMANDS
+## API/Commands
 
 ### set
 
