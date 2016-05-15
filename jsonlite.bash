@@ -139,7 +139,7 @@ jsonlite_drop() {
     return $?
   fi
 
-  read -rp "Are you sure you want to drop database '$JSONLITE_PATH' (y/n)? " confirm
+  read -rp "Drop database '$JSONLITE_PATH?' [Y/n] " confirm
   case "$confirm" in
     y|Y|yes|YES ) rm -rf "$JSONLITE_PATH";;
     * ) exit 7;;
