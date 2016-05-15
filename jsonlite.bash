@@ -66,7 +66,6 @@ jsonlite_set() {
     mkdir -p "$JSONLITE_PATH"
   fi
 
-  # Is this portable across distros?
   local uuid
   uuid=$(uuidgen | awk '{print toupper($0)}')
 
@@ -136,14 +135,12 @@ jsonlite_drop() {
   fi
 
   if [[ "$1" == "--force" ]]; then
-    # Do we need to guard against potentially naughty things here?
     rm -rf "$JSONLITE_PATH"
     return $?
   fi
 
   read -rp "Are you sure you want to drop '$JSONLITE_PATH' (y/n)? " confirm
   case "$confirm" in
-    # Do we need to guard against potentially naughty things here?
     y|Y|yes|YES ) rm -rf "$JSONLITE_PATH";;
     * ) exit 7;;
   esac
