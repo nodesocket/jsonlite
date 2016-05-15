@@ -1,5 +1,3 @@
-- Justin Keller ([nodesocket](https://github.com/nodesocket)) - <justin@commando.io>
-
+- Justin Keller ([nodesocket](https://github.com/nodesocket))
 - ([cbgbt](https://github.com/cbgbt))
-
-- Jose Diaz-Gonzalez ([josegonzalez](https://github.com/josegonzalez)) - <email@josediazgonzalez.com>
+- Jose Diaz-Gonzalez ([josegonzalez](https://github.com/josegonzalez))
