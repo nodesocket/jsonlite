@@ -3,7 +3,7 @@ CHANGELOG
 
 ## 0.7.1 - *5/15/2016*
 
-- Running `jsonlite` with no command displays the current version, `JSONLITE_PATH` environment variable and invokes the `help` command.
+- Running `jsonlite` with no command displays the current version, `JSONLITE_PATH` environment variable, and invokes the `help` command.
 
 ## 0.7.0 - *5/14/2016*
 
