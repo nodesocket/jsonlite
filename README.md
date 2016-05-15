@@ -27,7 +27,7 @@ You may optionally set the path to the data directory. It defaults to `$PWD/json
 # default
 export JSONLITE_PATH=$PWD/jsonlite.data
 
-# to temp
+# manually set to /tmp/jsonlite.data
 export JSONLITE_PATH=/tmp/jsonlite.data
 ```
 
