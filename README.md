@@ -4,10 +4,6 @@
 
 JSONlite sandboxes the current working directory just like [SQLite](https://www.sqlite.org/). The data directory is named `jsonlite.data`, and each json document is saved pretty printed as a uuid.
 
-## Proof of Concept
-
-JSONlite is a proof of concept, and it may not make any sense to actually use in development or production.
-
 ## Installation
 
 ```shell
@@ -88,7 +84,7 @@ Are you sure you want to drop '/jsonlite.data' (y/n)? y
 
 ````shell
 ➜ jsonlite version
-0.6.2
+0.6.3
 ````
 
 #### help
@@ -97,7 +93,7 @@ Are you sure you want to drop '/jsonlite.data' (y/n)? y
 
 ````
 ➜ jsonlite help
-JSONlite 0.6.2
+JSONlite 0.6.3
 Usage: jsonlite command <command-specific-options>
 
   delete <document-id>   Deletes a json document by document id
