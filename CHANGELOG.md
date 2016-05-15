@@ -12,7 +12,7 @@ CHANGELOG
 4 => Missing required argument json document
 5 => Missing required argument document id
 6 => Invalid argument document id
-7 => Failure confirming destroy
+7 => Failure confirming drop
 ````
 
 - Invoking `jsonlite` without any commands now invokes the `help` command.
