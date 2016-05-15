@@ -64,7 +64,7 @@ export JSONLITE_PATH=/tmp/jsonlite.data
 
 ````shell
 ➜ jsonlite count
-21
+293
 ````
 
 ### delete

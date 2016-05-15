@@ -15,7 +15,9 @@ CHANGELOG
 7 => Failure confirming destroy
 ````
 
-- Added a new test `tests/set_500.bash`
+- Invoking `jsonlite` without any commands now invokes the `help` command.
+- Added a new test `tests/set_500.bash`.
+- Documentation cleanup.
 
 ## 0.6.3 - *5/14/2016*
 
