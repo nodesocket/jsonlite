@@ -77,11 +77,13 @@ export JSONLITE_PATH=/tmp/jsonlite.data
 
 ### drop
 
-> drop - Drops the database
+> drop (--force) - Drops the database
 
 ````shell
 ➜ jsonlite drop
 Drop database '/jsonlite.data'? [Y/n] Y
+
+➜ jsonlite drop --force
 ````
 
 ### version
