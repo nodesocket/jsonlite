@@ -16,6 +16,7 @@ CHANGELOG
 ````
 
 - Invoking `jsonlite` without any commands now invokes the `help` command.
+- Updated the `drop` command confirmation prompt.
 - Added a new test `tests/set_500.bash`.
 - Documentation cleanup.
 
