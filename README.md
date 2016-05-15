@@ -28,7 +28,7 @@ ln -s $PWD/jsonlite.bash /usr/local/bin/jsonlite
 You may optionally set the full path to the data directory. It defaults to `$PWD/jsonlite.data` and can be set as follows:
 
 ```shell
-# the default
+# default
 export JSONLITE_PATH=$PWD/jsonlite.data
 
 # write to temp
