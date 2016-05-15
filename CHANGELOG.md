@@ -53,7 +53,7 @@ cat foobar.json | jsonlite set
 
 - Documentation cleanup. No code changes. 
 
-## 0.6.0 - *9/26/2015* - thanks [josegonzalez](https://github.com/josegonzalez).
+## 0.6.0 - *9/26/2015* (thanks [josegonzalez](https://github.com/josegonzalez))
 
 - You can now define where the data directory path is using the `JSONLITE_PATH` environment variable. It defaults to the existing path, `$PWD/jsonlite.data`.
 
@@ -73,7 +73,7 @@ cat foobar.json | jsonlite set
 
 - Changed test from 1,000 to 500 iterations.
 
-## 0.4.1 - *9/22/2015* - thanks [cbgbt](https://github.com/cbgbt)
+## 0.4.1 - *9/22/2015* (thanks [cbgbt](https://github.com/cbgbt))
 
 - Support distros where `uuidgen` is lowercase by forcing uppercase. `awk '{print toupper($0)}'`
 
