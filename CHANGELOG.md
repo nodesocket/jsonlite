@@ -73,9 +73,9 @@ cat foobar.json | jsonlite set
 
 - Changed test from 1,000 to 500 iterations.
 
-## 0.4.1 - *9/22/2015*
+## 0.4.1 - *9/22/2015* - thanks [cbgbt](https://github.com/cbgbt)
 
-- Support distros where `uuidgen` is lowercase by forcing uppercase. `awk '{print toupper($0)}'` Thanks [cbgbt](https://github.com/cbgbt).
+- Support distros where `uuidgen` is lowercase by forcing uppercase. `awk '{print toupper($0)}'`
 
 ## 0.4.0 - *9/22/2015*
 
