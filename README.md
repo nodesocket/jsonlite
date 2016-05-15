@@ -6,11 +6,11 @@ JSONlite sandboxes the current working directory just like [SQLite](https://www.
 
 ## Installation
 
-```shell
+````
 git clone https://github.com/nodesocket/jsonlite.git
 cd jsonlite
 ln -s $PWD/jsonlite.bash /usr/local/bin/jsonlite
-```
+````
 
 ## Requirements
 
@@ -23,13 +23,13 @@ ln -s $PWD/jsonlite.bash /usr/local/bin/jsonlite
 
 You may optionally set the path to the data directory. It defaults to `$PWD/jsonlite.data` but can manually be set with the `JSONLITE_PATH` environment variable.
 
-```shell
+````
 # default
 export JSONLITE_PATH=$PWD/jsonlite.data
 
 # manually set to /tmp/jsonlite.data
 export JSONLITE_PATH=/tmp/jsonlite.data
-```
+````
 
 ## API/Commands
 
@@ -37,18 +37,18 @@ export JSONLITE_PATH=/tmp/jsonlite.data
 
 > set \<json\> - Writes a json document and returns the document id
 
-````shell
+````
 ➜ jsonlite set '{"name":"John Doe","active":true,"permissions":{"read":true,"write":false}}'
 666B81D6-3F8A-4D57-BA3F-11FA8FC47246
 ````
 
 `set` also supports piping into it:
 
-````shell
+````
 echo '{"key":"value"}' | jsonlite set
 4472B861-4C10-4C0A-A63B-E5D45AA679C0
 ````
-````shell
+````
 cat foobar.json | jsonlite set
 9DF4DC1F-121E-46DC-B580-E1663B645AED
 ````
@@ -57,7 +57,7 @@ cat foobar.json | jsonlite set
 
 > get \<document-id\> - Retrieves a json document by document id
 
-````shell
+````
 ➜ jsonlite get 666B81D6-3F8A-4D57-BA3F-11FA8FC47246
 {
     "active": true,
@@ -73,7 +73,7 @@ cat foobar.json | jsonlite set
 
 > count - Total number of json documents in the database
 
-````shell
+````
 ➜ jsonlite count
 293
 ````
@@ -82,7 +82,7 @@ cat foobar.json | jsonlite set
 
 > delete \<document-id\> - Deletes a json document by document id
 
-````shell
+````
 ➜ jsonlite delete 666B81D6-3F8A-4D57-BA3F-11FA8FC47246
 ````
 
@@ -90,12 +90,12 @@ cat foobar.json | jsonlite set
 
 > drop (--force) - Drops the database
 
-````shell
+````
 ➜ jsonlite drop
 Drop database '/jsonlite.data'? [Y/n] Y
 ````
 
-````shell
+````
 ➜ jsonlite drop --force
 ````
 
@@ -123,7 +123,7 @@ Usage: jsonlite command <command-specific-options>
 
 > version - Displays the current version
 
-````shell
+````
 ➜ jsonlite version
 0.8.0
 ````

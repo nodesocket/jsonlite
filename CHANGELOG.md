@@ -5,11 +5,11 @@ CHANGELOG
 
 - The `set` command now supports piping into it. Closes [issue #14](https://github.com/nodesocket/jsonlite/issues/14).
 
-````shell
+````
 echo '{"key":"value"}' | jsonlite set
 4472B861-4C10-4C0A-A63B-E5D45AA679C0
 ````
-````shell
+````
 cat foobar.json | jsonlite set
 9DF4DC1F-121E-46DC-B580-E1663B645AED
 ````
@@ -85,7 +85,7 @@ cat foobar.json | jsonlite set
 
 - Updated the installation section in `README.md` related to creating the symbolic link. The new `ln` command is:
 
-````shell
+````
 ln -s $PWD/jsonlite.sh /usr/local/bin/jsonlite
 ````
 
