@@ -4,7 +4,7 @@ CHANGELOG
 ## 0.7.0 - *5/14/2016*
 
 - Added a new command `count` which prints the total number of json documents in the database.
-- Return exit codes changed to ovoid using `1` and `2` which are reserved.
+- Return exit codes changed to ovoid using `1` and `2` which are reserved. Closes [issue #13](https://github.com/nodesocket/jsonlite/issues/13).
 
 ````
 0 => Success
@@ -35,13 +35,13 @@ CHANGELOG
 
 ## 0.6.0 - *9/26/2015* - thanks [josegonzalez](https://github.com/josegonzalez).
 
-- You can now define where the data directory path is using the `JSONLITE_PATH` environment variable. It defaults to the existing path, `$(pwd)/jsonlite.data`.
+- You can now define where the data directory path is using the `JSONLITE_PATH` environment variable. It defaults to the existing path, `$PWD/jsonlite.data`.
 
 - JSONlite has been transformed such that it can be used as a library. To do so, simply source in all the methods at the top of your script.
 
 - Support for [yajl](http://lloyd.github.io/yajl/) `json_reformat` and [jq](https://github.com/stedolan/jq) pretty printing when setting. JSONlite will automatically detect if you have either, if not, it falls back to `python -m json.tool`. `json_reformat` and `jq` provide roughly a 3x performance improvement setting documents.
 
-- Added help command.
+- Added `help` command.
 
 - Bashisms and best practice cleanup.
 
