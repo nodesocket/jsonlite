@@ -21,21 +21,21 @@ ln -s $PWD/jsonlite.bash /usr/local/bin/jsonlite
 1. bash
 2. uuidgen
 3. python -m json.tool
-  - Alternatively, install [Yajl](http://lloyd.github.io/yajl/) for `json_reformat` *or* `jq` to get a roughly 3x performance improvement setting documents.
+  - Alternatively, install [Yajl](http://lloyd.github.io/yajl/) for `json_reformat` *or* [jq](https://github.com/stedolan/jq) to get a roughly 3x performance improvement setting documents.
 
 ## Configuration
 
-You may optionally set the full path to the data directory. It defaults to `$(pwd)/jsonlite.data` and can be set as follows:
+You may optionally set the full path to the data directory. It defaults to `$PWD/jsonlite.data` and can be set as follows:
 
 ```shell
 # the default
-export JSONLITE_PATH=$(pwd)/jsonlite.data
+export JSONLITE_PATH=$PWD/jsonlite.data
 
-# write it to a temp file
+# write to temp
 export JSONLITE_PATH=/tmp/jsonlite.data
 
-# write it to your app's config directory
-export JSONLITE_PATH=/var/lib/app/config
+# write to your app
+export JSONLITE_PATH=/var/lib/my-app
 ```
 
 ## API
@@ -88,7 +88,7 @@ Are you sure you want to drop '/jsonlite.data' (y/n)? y
 
 ````shell
 ➜ jsonlite version
-0.6.1
+0.6.2
 ````
 
 #### help
@@ -97,7 +97,7 @@ Are you sure you want to drop '/jsonlite.data' (y/n)? y
 
 ````
 ➜ jsonlite help
-JSONLite 0.6.1
+JSONLite 0.6.2
 Usage: JSONLite COMMAND <arguments>
 
   delete <document-id>   Deletes a json document by document id
@@ -136,7 +136,7 @@ For more information on semantic versioning, visit http://semver.org/.
 
 ## License & Legal
 
-Copyright 2015 Justin Keller
+Copyright 2016 Justin Keller
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

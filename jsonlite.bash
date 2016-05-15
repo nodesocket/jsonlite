@@ -1,16 +1,16 @@
 #!/usr/bin/env bash
 set -eo pipefail; [[ $TRACE ]] && set -x
 
-readonly VERSION="0.6.1"
+readonly VERSION="0.6.2"
 export JSONLITE_PATH=${JSONLITE_PATH:="$PWD/jsonlite.data"}
 
 jsonlite_version() {
-  echo "JSONLite $VERSION"
+  echo "JSONlite $VERSION"
 }
 
 jsonlite_usage() {
   jsonlite_version
-  echo "Usage: JSONLite COMMAND <command-specific-options>"
+  echo "Usage: jsonlite command <command-specific-options>"
 }
 
 jsonlite_help() {
@@ -57,7 +57,7 @@ jsonlite_set() {
     # use the not-as-fast jq library if available
     echo "$value" | jq '.' > "$JSONLITE_PATH/$UUID"
   else
-    # fallback to slower json.tool
+    # fallback to the slowest json.tool
     echo "$value" | python -m json.tool > "$JSONLITE_PATH/$UUID"
   fi
 
@@ -104,11 +104,12 @@ jsonlite_drop() {
   fi
 
   if [[ "$1" == "--force" ]]; then
+    # Do we need to guard against potentially naughty things here?
     rm -rf "$JSONLITE_PATH"
     return $?
   fi
 
-  read -p "Are you sure you want to drop '$JSONLITE_PATH' (y/n)? " confirm
+  read -rp "Are you sure you want to drop '$JSONLITE_PATH' (y/n)? " confirm
   case "$confirm" in
     # Do we need to guard against potentially naughty things here?
     y|Y|yes|YES ) rm -rf "$JSONLITE_PATH";;

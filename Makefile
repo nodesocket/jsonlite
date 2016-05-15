@@ -11,7 +11,7 @@ endif
 bats:
 ifeq ($(shell bats > /dev/null 2>&1 ; echo $$?),127)
 ifeq ($(shell uname),Darwin)
-	brew install shellcheck
+	brew install bats
 else
 	sudo add-apt-repository ppa:duggan/bats --yes
 	sudo apt-get update -qq && sudo apt-get install -qq -y bats

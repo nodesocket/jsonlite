@@ -1,6 +1,12 @@
 CHANGELOG
 =========
 
+## 0.6.2 - *5/14/2016*
+
+- Globally replaced text JSONLite to JSONlite **(lowercase l)**.
+- Shellcheck and cleanup.
+- Documentation cleanup.
+
 ## 0.6.1 - *9/26/2015*
 
 - Documentation cleanup. No code changes. 
@@ -9,9 +15,9 @@ CHANGELOG
 
 - You can now define where the data directory path is using the `JSONLITE_PATH` environment variable. It defaults to the existing path, `$(pwd)/jsonlite.data`.
 
-- JSONLite has been transformed such that it can be used as a library. To do so, simply source in all the methods at the top of your script.
+- JSONlite has been transformed such that it can be used as a library. To do so, simply source in all the methods at the top of your script.
 
-- Support for [Yajl](http://lloyd.github.io/yajl/) `json_reformat` and `jq` pretty printing when setting. JSONLite will automatically detect if you have either, if not, it falls back to `python -m json.tool`. `json_reformat` and `jq` provide roughly a 3x performance improvement setting documents.
+- Support for [Yajl](http://lloyd.github.io/yajl/) `json_reformat` and `jq` pretty printing when setting. JSONlite will automatically detect if you have either, if not, it falls back to `python -m json.tool`. `json_reformat` and `jq` provide roughly a 3x performance improvement setting documents.
 
 - Added help command.
 
