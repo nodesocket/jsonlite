@@ -31,10 +31,10 @@ You may optionally set the full path to the data directory. It defaults to `$PWD
 # default
 export JSONLITE_PATH=$PWD/jsonlite.data
 
-# write to temp
+# to temp
 export JSONLITE_PATH=/tmp/jsonlite.data
 
-# write to your app
+# to your app
 export JSONLITE_PATH=/var/lib/my-app
 ```
 
@@ -97,8 +97,8 @@ Are you sure you want to drop '/jsonlite.data' (y/n)? y
 
 ````
 ➜ jsonlite help
-JSONLite 0.6.2
-Usage: JSONLite COMMAND <arguments>
+JSONlite 0.6.2
+Usage: jsonlite command <command-specific-options>
 
   delete <document-id>   Deletes a json document by document id
   drop (--force)         Drops the database
