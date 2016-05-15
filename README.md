@@ -82,7 +82,9 @@ export JSONLITE_PATH=/tmp/jsonlite.data
 ````shell
 ➜ jsonlite drop
 Drop database '/jsonlite.data'? [Y/n] Y
+````
 
+````
 ➜ jsonlite drop --force
 ````
 
