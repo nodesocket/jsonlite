@@ -21,7 +21,7 @@ CHANGELOG
 
 - JSONlite has been transformed such that it can be used as a library. To do so, simply source in all the methods at the top of your script.
 
-- Support for [Yajl](http://lloyd.github.io/yajl/) `json_reformat` and [jq](https://github.com/stedolan/jq) pretty printing when setting. JSONlite will automatically detect if you have either, if not, it falls back to `python -m json.tool`. `json_reformat` and `jq` provide roughly a 3x performance improvement setting documents.
+- Support for [yajl](http://lloyd.github.io/yajl/) `json_reformat` and [jq](https://github.com/stedolan/jq) pretty printing when setting. JSONlite will automatically detect if you have either, if not, it falls back to `python -m json.tool`. `json_reformat` and `jq` provide roughly a 3x performance improvement setting documents.
 
 - Added help command.
 
