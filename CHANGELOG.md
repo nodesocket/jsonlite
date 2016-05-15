@@ -3,11 +3,11 @@ CHANGELOG
 
 ## 0.7.1 - *5/15/2016*
 
-- Running `jsonlite` with no command prints the current version and `JSONLITE_PATH` environment variable.
+- Running `jsonlite` with no command displays the current version and `JSONLITE_PATH` environment variable.
 
 ## 0.7.0 - *5/14/2016*
 
-- Added a new command `count` which prints the total number of json documents in the database.
+- Added a new command `count` which displays the total number of json documents in the database.
 - Return exit codes changed to ovoid using `1` and `2` which are reserved. Closes [issue #13](https://github.com/nodesocket/jsonlite/issues/13).
 
 ````
