@@ -11,7 +11,7 @@ JSONlite sandboxes the current working directory similar to [SQLite](https://www
 3. python -m json.tool
   - Alternatively, install [yajl](http://lloyd.github.io/yajl/) for `json_reformat` *or* [jq](https://github.com/stedolan/jq) to get a roughly 3x performance improvement setting documents.
 
-  `json_reformat` is the fastest of the three set methods. **jq** comes in a close second and `python -m json.tool` being significantly slowest. If possible, avoid using `python -m json.tool`.
+  `json_reformat` is the fastest of the three set methods. `jq` comes in at a close second and `python -m json.tool` is significantly the slowest. If possible, avoid using `python -m json.tool`.
 
 ## Installation
 
