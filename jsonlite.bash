@@ -29,11 +29,11 @@ jsonlite_info() {
   jsonlite_version
 
   if command -v json_reformat > /dev/null 2>&1; then
-    echo "  [using] json_reformat (fast)"
+    echo "  set is using: json_reformat (fastest)"
   elif command -v jq > /dev/null 2>&1; then
-    echo "  [using] jq (fast)"
+    echo "  set is using: jq (fast)"
   else
-    echo "  [using] python -m json.tool (slow)"
+    echo "  set is using: python -m json.tool (slow)"
   fi
 
   echo
