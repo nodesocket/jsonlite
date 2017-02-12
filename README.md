@@ -13,7 +13,7 @@ JSONlite sandboxes the current working directory similar to [SQLite](https://www
 
 ## Installation
 
-````shell
+````
 git clone https://github.com/nodesocket/jsonlite.git
 ln -s "$PWD"/jsonlite/jsonlite.bash /usr/local/bin/jsonlite
 ````
@@ -22,7 +22,7 @@ ln -s "$PWD"/jsonlite/jsonlite.bash /usr/local/bin/jsonlite
 
 You may optionally set the path to the data directory. It defaults to `$PWD/jsonlite.data` but can manually be set with the `JSONLITE_DATA_DIR` environment variable.
 
-````shell
+````
 # default
 export JSONLITE_DATA_DIR="$PWD"/jsonlite.data
 
