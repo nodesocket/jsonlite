@@ -1,6 +1,11 @@
 CHANGELOG
 =========
 
+## 1.0.0 - *2/12/2017* **(BREAKING CHANGE)**
+
+- Depreciated `JSONLITE_PATH` environment variable. `JSONLITE_DATA_DIR` should be used instead.
+- Minor documentation cleanup.
+
 ## 0.8.0 - *5/15/2016*
 
 - The `set` command now supports piping into it. Closes [issue #14](https://github.com/nodesocket/jsonlite/issues/14).

@@ -2,14 +2,13 @@
 
 ##### A simple, self-contained, serverless, zero-configuration, [json](http://www.json.org/) document store.
 
-JSONlite sandboxes the current working directory just like [SQLite](https://www.sqlite.org/). The data directory is named `jsonlite.data`, and each json document is saved pretty printed as a uuid.
+JSONlite sandboxes the current working similar to [SQLite](https://www.sqlite.org/). The JSONlite data directory is named `jsonlite.data`, and each json document is saved pretty printed as a uuid.
 
 ## Installation
 
 ````
 git clone https://github.com/nodesocket/jsonlite.git
-cd jsonlite
-ln -s $PWD/jsonlite.bash /usr/local/bin/jsonlite
+ln -s "$PWD"/jsonlite/jsonlite.bash /usr/local/bin/jsonlite
 ````
 
 ## Requirements
@@ -21,14 +20,14 @@ ln -s $PWD/jsonlite.bash /usr/local/bin/jsonlite
 
 ## Configuration
 
-You may optionally set the path to the data directory. It defaults to `$PWD/jsonlite.data` but can manually be set with the `JSONLITE_PATH` environment variable.
+You may optionally set the path to the data directory. It defaults to `$PWD/jsonlite.data` but can manually be set with the `JSONLITE_DATA_DIR` environment variable.
 
 ````
 # default
-export JSONLITE_PATH=$PWD/jsonlite.data
+export JSONLITE_DATA_DIR="$PWD"/jsonlite.data
 
-# manually set to /tmp/jsonlite.data
-export JSONLITE_PATH=/tmp/jsonlite.data
+# manually set the data directory
+export JSONLITE_DATA_DIR=/tmp/jsonlite.data
 ````
 
 ## API/Commands
@@ -154,7 +153,7 @@ For more information on semantic versioning, visit http://semver.org/.
 
 ## License & Legal
 
-Copyright 2016 Justin Keller
+Copyright 2017 Justin Keller
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

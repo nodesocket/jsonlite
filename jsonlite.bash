@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 ###############################################################################
-# Copyright 2016 Justin Keller
+# Copyright 2017 Justin Keller
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -18,8 +18,8 @@
 
 set -eo pipefail; [[ $TRACE ]] && set -x
 
-readonly VERSION="0.8.0"
-export JSONLITE_PATH=${JSONLITE_PATH:="$PWD/jsonlite.data"}
+readonly VERSION="1.0.0"
+export JSONLITE_DATA_DIR=${JSONLITE_DATA_DIR:="$PWD/jsonlite.data"}
 
 jsonlite_version() {
   echo "JSONlite $VERSION"
@@ -27,7 +27,7 @@ jsonlite_version() {
 
 jsonlite_info() {
   jsonlite_version
-  echo "JSONLITE_PATH=$JSONLITE_PATH"
+  echo "JSONLITE_DATA_DIR=$JSONLITE_DATA_DIR"
   echo
 }
 
@@ -70,21 +70,21 @@ jsonlite_set() {
     exit 4
   fi
 
-  if [[ ! -d "$JSONLITE_PATH" ]]; then
-    mkdir -p "$JSONLITE_PATH"
+  if [[ ! -d "$JSONLITE_DATA_DIR" ]]; then
+    mkdir -p "$JSONLITE_DATA_DIR"
   fi
 
   local uuid
   uuid=$(uuidgen | awk '{print toupper($0)}')
 
   if command -v json_reformat > /dev/null 2>&1; then
-    echo "$value" | json_reformat > "$JSONLITE_PATH/$uuid"
+    echo "$value" | json_reformat > "$JSONLITE_DATA_DIR/$uuid"
   elif command -v jq > /dev/null 2>&1; then
     # use the not-as-fast jq library if available
-    echo "$value" | jq '.' > "$JSONLITE_PATH/$uuid"
+    echo "$value" | jq '.' > "$JSONLITE_DATA_DIR/$uuid"
   else
     # fallback to the slowest json.tool
-    echo "$value" | python -m json.tool > "$JSONLITE_PATH/$uuid"
+    echo "$value" | python -m json.tool > "$JSONLITE_DATA_DIR/$uuid"
   fi
 
   echo "$uuid"
@@ -102,19 +102,19 @@ jsonlite_get() {
     exit 6
   fi
 
-  if [[ -f "$JSONLITE_PATH/$document_id" ]]; then
-    cat "$JSONLITE_PATH/$document_id"
+  if [[ -f "$JSONLITE_DATA_DIR/$document_id" ]]; then
+    cat "$JSONLITE_DATA_DIR/$document_id"
   fi
 }
 
 jsonlite_count() {
-  if [[ ! -d "$JSONLITE_PATH" ]]; then
+  if [[ ! -d "$JSONLITE_DATA_DIR" ]]; then
     echo 0
     exit 0
   fi
 
   local count
-  count=$(find "$JSONLITE_PATH" -type f | wc -l)
+  count=$(find "$JSONLITE_DATA_DIR" -type f | wc -l)
 
   # piping to xargs is a trick to trim (remove leading & trailing whitespace)
   echo "$count" | xargs
@@ -132,24 +132,24 @@ jsonlite_delete() {
     exit 6
   fi
 
-  if [[ -f "$JSONLITE_PATH/$document_id" ]]; then
-    rm -f "$JSONLITE_PATH/$document_id"
+  if [[ -f "$JSONLITE_DATA_DIR/$document_id" ]]; then
+    rm -f "$JSONLITE_DATA_DIR/$document_id"
   fi
 }
 
 jsonlite_drop() {
-  if [[ ! -d "$JSONLITE_PATH" ]]; then
+  if [[ ! -d "$JSONLITE_DATA_DIR" ]]; then
     return $?
   fi
 
   if [[ "$1" == "--force" ]]; then
-    rm -rf "$JSONLITE_PATH"
+    rm -rf "$JSONLITE_DATA_DIR"
     return $?
   fi
 
-  read -rp "Drop database '$JSONLITE_PATH'? [Y/n] " confirm
+  read -rp "Drop database '$JSONLITE_DATA_DIR'? [Y/n] " confirm
   case "$confirm" in
-    y|Y|yes|YES ) rm -rf "$JSONLITE_PATH";;
+    y|Y|yes|YES ) rm -rf "$JSONLITE_DATA_DIR";;
     * ) exit 7;;
   esac
 }
