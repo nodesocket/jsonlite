@@ -134,9 +134,8 @@ Usage: jsonlite command <command-specific-options>
 ```
 ➜ jsonlite
 JSONlite 1.0.0
-  set is using: json_reformat (fastest)
-
-Data directory path: /tmp/jsonlite.data
+  - Set is using: json_reformat (fastest)
+  - Data directory path: /tmp/jsonlite.data
 
 Usage: jsonlite command <command-specific-options>
 

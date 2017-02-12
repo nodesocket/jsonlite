@@ -29,15 +29,14 @@ jsonlite_info() {
   jsonlite_version
 
   if command -v json_reformat > /dev/null 2>&1; then
-    echo "  set is using: json_reformat (fastest)"
+    echo "  - Set is using: json_reformat (fastest)"
   elif command -v jq > /dev/null 2>&1; then
-    echo "  set is using: jq (fast)"
+    echo "  - Set is using: jq (fast)"
   else
-    echo "  set is using: python -m json.tool (slow)"
+    echo "  - Set is using: python -m json.tool (slowest)"
   fi
 
-  echo
-  echo "Data directory path: $JSONLITE_DATA_DIR"
+  echo "  - Data directory path: $JSONLITE_DATA_DIR"
   echo
 }
 
