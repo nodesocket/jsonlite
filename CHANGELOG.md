@@ -3,8 +3,10 @@ CHANGELOG
 
 ## 1.0.0 - *2/12/2017* **(BREAKING CHANGE)**
 
-- Depreciated `JSONLITE_PATH` environment variable. `JSONLITE_DATA_DIR` should be used instead.
-- Minor documentation cleanup.
+- Deprecated `JSONLITE_PATH` environment variable. Use `JSONLITE_DATA_DIR` instead.
+- When there is no data directory and `drop` is invoked, hard code an exit code of `0` instead of `$?`.
+- Documentation cleanup.
+- Bump copyrights to 2017.
 
 ## 0.8.0 - *5/15/2016*
 

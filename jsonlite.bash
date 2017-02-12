@@ -44,8 +44,6 @@ jsonlite_help() {
   version, Displays the current version
 EOF
   echo
-  echo "  For more information, see https://github.com/nodesocket/jsonlite"
-  echo
 }
 
 jsonlite_is_valid_uuid() {
@@ -139,7 +137,7 @@ jsonlite_delete() {
 
 jsonlite_drop() {
   if [[ ! -d "$JSONLITE_DATA_DIR" ]]; then
-    return $?
+    return 0
   fi
 
   if [[ "$1" == "--force" ]]; then
@@ -149,7 +147,7 @@ jsonlite_drop() {
 
   read -rp "Drop database '$JSONLITE_DATA_DIR'? [Y/n] " confirm
   case "$confirm" in
-    y|Y|yes|YES ) rm -rf "$JSONLITE_DATA_DIR";;
+    Y|y|YES|yes ) rm -rf "$JSONLITE_DATA_DIR";;
     * ) exit 7;;
   esac
 }

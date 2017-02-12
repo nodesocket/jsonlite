@@ -2,7 +2,7 @@
 
 ##### A simple, self-contained, serverless, zero-configuration, [json](http://www.json.org/) document store.
 
-JSONlite sandboxes the current working similar to [SQLite](https://www.sqlite.org/). The JSONlite data directory is named `jsonlite.data`, and each json document is saved pretty printed as a uuid.
+JSONlite sandboxes the current working directory similar to [SQLite](https://www.sqlite.org/). The JSONlite data directory is named `jsonlite.data`, and each json document is saved pretty printed as a uuid.
 
 ## Installation
 
@@ -26,7 +26,7 @@ You may optionally set the path to the data directory. It defaults to `$PWD/json
 # default
 export JSONLITE_DATA_DIR="$PWD"/jsonlite.data
 
-# manually set the data directory
+# manually set the data directory path
 export JSONLITE_DATA_DIR=/tmp/jsonlite.data
 ````
 
