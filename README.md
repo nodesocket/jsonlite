@@ -91,14 +91,14 @@ cat foobar.json | jsonlite set
 
 ````
 ➜ jsonlite drop
-Drop database '/jsonlite.data'? [Y/n] Y
+Drop database '/tmp/jsonlite.data'? [Y/n] Y
 ````
 
 ````
 ➜ jsonlite drop --force
 ````
 
-#### help
+### help
 
 > help - Displays help
 
