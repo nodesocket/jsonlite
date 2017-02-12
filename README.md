@@ -4,13 +4,6 @@
 
 JSONlite sandboxes the current working directory similar to [SQLite](https://www.sqlite.org/). The JSONlite data directory is named `jsonlite.data`, and each json document is saved pretty printed as a uuid.
 
-## Installation
-
-````
-git clone https://github.com/nodesocket/jsonlite.git
-ln -s "$PWD"/jsonlite/jsonlite.bash /usr/local/bin/jsonlite
-````
-
 ## Requirements
 
 1. bash
@@ -18,11 +11,18 @@ ln -s "$PWD"/jsonlite/jsonlite.bash /usr/local/bin/jsonlite
 3. python -m json.tool
   - Alternatively, install [yajl](http://lloyd.github.io/yajl/) for `json_reformat` *or* [jq](https://github.com/stedolan/jq) to get a roughly 3x performance improvement setting documents.
 
+## Installation
+
+````bash
+git clone https://github.com/nodesocket/jsonlite.git
+ln -s "$PWD"/jsonlite/jsonlite.bash /usr/local/bin/jsonlite
+````
+
 ## Configuration
 
 You may optionally set the path to the data directory. It defaults to `$PWD/jsonlite.data` but can manually be set with the `JSONLITE_DATA_DIR` environment variable.
 
-````
+````bash
 # default
 export JSONLITE_DATA_DIR="$PWD"/jsonlite.data
 
@@ -114,8 +114,6 @@ Usage: jsonlite command <command-specific-options>
   help                   Displays help
   version                Displays the current version
 
-  For more information, see https://github.com/nodesocket/jsonlite
-
 ````
 
 ### version
@@ -124,7 +122,7 @@ Usage: jsonlite command <command-specific-options>
 
 ````
 ➜ jsonlite version
-0.8.0
+1.0.0
 ````
 
 ## Changelog
