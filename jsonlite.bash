@@ -27,7 +27,17 @@ jsonlite_version() {
 
 jsonlite_info() {
   jsonlite_version
-  echo "JSONLITE_DATA_DIR=$JSONLITE_DATA_DIR"
+
+  if command -v json_reformat > /dev/null 2>&1; then
+    echo "  [using] json_reformat (fast)"
+  elif command -v jq > /dev/null 2>&1; then
+    echo "  [using] jq (fast)"
+  else
+    echo "  [using] python -m json.tool (slow)"
+  fi
+
+  echo
+  echo "Data directory path: $JSONLITE_DATA_DIR"
   echo
 }
 

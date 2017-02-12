@@ -113,6 +113,7 @@ Usage: jsonlite command <command-specific-options>
   drop (--force)         Drops the database
   help                   Displays help
   version                Displays the current version
+
 ````
 
 ### version
@@ -123,6 +124,29 @@ Usage: jsonlite command <command-specific-options>
 ➜ jsonlite version
 1.0.0
 ````
+
+### default
+
+> default - Displays the current version, configuration, and help
+
+```
+➜ jsonlite
+JSONlite 1.0.0
+  [using] json_reformat (fast)
+
+Data directory path: /tmp/jsonlite.data
+
+Usage: jsonlite command <command-specific-options>
+
+  set <json>             Writes a json document and returns a document id
+  get <document-id>      Retrieves a json document by document id
+  count                  Total number of json documents in the database
+  delete <document-id>   Deletes a json document by document id
+  drop (--force)         Drops the database
+  help                   Displays help
+  version                Displays the current version
+
+```
 
 ## Changelog
 
