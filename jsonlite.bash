@@ -18,7 +18,7 @@
 
 set -eo pipefail; [[ $TRACE ]] && set -x
 
-readonly VERSION="1.0.0"
+readonly VERSION="1.1.0"
 export JSONLITE_DATA_DIR=${JSONLITE_DATA_DIR:="$PWD/jsonlite.data"}
 
 jsonlite_version() {
@@ -29,14 +29,14 @@ jsonlite_info() {
   jsonlite_version
 
   if command -v json_reformat > /dev/null 2>&1; then
-    echo "  - Set is using: json_reformat (fastest)"
+    echo "  set is using: json_reformat (fastest)"
   elif command -v jq > /dev/null 2>&1; then
-    echo "  - Set is using: jq (fast)"
+    echo "  set is using: jq (fast)"
   else
-    echo "  - Set is using: python -m json.tool (slowest)"
+    echo "  set is using: python -m json.tool (slowest)"
   fi
 
-  echo "  - Data directory path: $JSONLITE_DATA_DIR"
+  echo "  data directory path: $JSONLITE_DATA_DIR"
   echo
 }
 
@@ -77,6 +77,19 @@ jsonlite_set() {
     exit 4
   fi
 
+  local json_document
+
+  # use the fastest json_reformat if available
+  if command -v json_reformat > /dev/null 2>&1; then
+    json_document=$(echo "$value" | json_reformat)
+  # use the not-as-fast jq if available
+  elif command -v jq > /dev/null 2>&1; then
+    json_document=$(echo "$value" | jq '.')
+  # fallback to the slowest json.tool
+  else
+    json_document=$(echo "$value" | python -m json.tool)
+  fi
+
   if [[ ! -d "$JSONLITE_DATA_DIR" ]]; then
     mkdir -p "$JSONLITE_DATA_DIR"
   fi
@@ -84,16 +97,7 @@ jsonlite_set() {
   local uuid
   uuid=$(uuidgen | awk '{print toupper($0)}')
 
-  if command -v json_reformat > /dev/null 2>&1; then
-    echo "$value" | json_reformat > "$JSONLITE_DATA_DIR/$uuid"
-  elif command -v jq > /dev/null 2>&1; then
-    # use the not-as-fast jq library if available
-    echo "$value" | jq '.' > "$JSONLITE_DATA_DIR/$uuid"
-  else
-    # fallback to the slowest json.tool
-    echo "$value" | python -m json.tool > "$JSONLITE_DATA_DIR/$uuid"
-  fi
-
+  echo "$json_document" > "$JSONLITE_DATA_DIR/$uuid"
   echo "$uuid"
 }
 
@@ -120,11 +124,8 @@ jsonlite_count() {
     exit 0
   fi
 
-  local count
-  count=$(find "$JSONLITE_DATA_DIR" -type f | wc -l)
-
   # piping to xargs is a trick to trim (remove leading & trailing whitespace)
-  echo "$count" | xargs
+  find "$JSONLITE_DATA_DIR" -type f | wc -l | xargs
 }
 
 jsonlite_delete() {
@@ -146,12 +147,12 @@ jsonlite_delete() {
 
 jsonlite_drop() {
   if [[ ! -d "$JSONLITE_DATA_DIR" ]]; then
-    return 0
+    exit 0
   fi
 
   if [[ "$1" == "--force" ]]; then
     rm -rf "$JSONLITE_DATA_DIR"
-    return $?
+    exit $?
   fi
 
   read -rp "Drop database '$JSONLITE_DATA_DIR'? [Y/n] " confirm
@@ -165,9 +166,9 @@ jsonlite_main() {
   local COMMAND="$1"
 
   if [[ -z $COMMAND ]]; then
-      jsonlite_info
-      jsonlite_help
-      exit 0
+    jsonlite_info
+    jsonlite_help
+    exit 0
   fi
 
   shift 1

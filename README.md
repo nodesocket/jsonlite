@@ -124,7 +124,7 @@ Usage: jsonlite command <command-specific-options>
 
 ````
 ➜ jsonlite version
-1.0.0
+1.1.0
 ````
 
 ### default
@@ -133,9 +133,9 @@ Usage: jsonlite command <command-specific-options>
 
 ```
 ➜ jsonlite
-JSONlite 1.0.0
-  - Set is using: json_reformat (fastest)
-  - Data directory path: /tmp/jsonlite.data
+JSONlite 1.1.0
+  set is using: json_reformat (fastest)
+  data directory path: /tmp/jsonlite.data
 
 Usage: jsonlite command <command-specific-options>
 
