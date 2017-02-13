@@ -21,7 +21,6 @@ endif
 ci-dependencies: shellcheck bats
 
 lint:
-	@echo linting...
 	@$(QUIET) find ./ -maxdepth 1 -not -path '*/\.*' | xargs file | egrep "shell|bash" | awk '{ print $$1 }' | sed 's/://g' | xargs shellcheck
 
 stresstest:
