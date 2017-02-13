@@ -3,7 +3,7 @@ CHANGELOG
 
 ## 1.1.0 - *2/12/2017*
 
-- Fixed a bug where providing invalid json to `set` would write an empty file with a uuid filname to the data directory. Now, providing invalid json to `set` errors with no file written to the data directory.
+- Fixed a bug where providing invalid json to `set` would write an empty file with a uuid filename to the data directory. Now, providing invalid json to `set` errors with no file written to the data directory.
 
 ## 1.0.0 - *2/12/2017* **(BREAKING CHANGE)**
 
