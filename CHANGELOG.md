@@ -1,6 +1,12 @@
 CHANGELOG
 =========
 
+## 1.1.1 - *9/23/2017*
+
+- Changed text from `set is using` to `json formatter` in `jsonlite_info()`.
+- Changed text from `data directory path` to `data directory` in `jsonlite_info()`.
+- Show a notice when calling `jsonlite_info()` if using the slowest json formatter `python -m json.tool`.
+
 ## 1.1.0 - *2/12/2017*
 
 - Fixed a bug where providing invalid json to `set` would write an empty file with a uuid filename to the data directory. Now providing invalid json to `set` errors with no file written to the data directory.
@@ -67,7 +73,7 @@ cat foobar.json | jsonlite set
 
 ## 0.6.0 - *9/26/2015* (thanks [josegonzalez](https://github.com/josegonzalez))
 
-- You can now define where the data directory path is using the `JSONLITE_PATH` environment variable. It defaults to the existing path, `$PWD/jsonlite.data`.
+- You can now define where the data directory is using the `JSONLITE_PATH` environment variable. It defaults to the existing path, `$PWD/jsonlite.data`.
 
 - JSONlite has been transformed such that it can be used as a library. To do so, simply source in all the methods at the top of your script.
 

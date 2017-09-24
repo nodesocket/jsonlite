@@ -28,7 +28,7 @@ You may optionally set the path to the data directory. It defaults to `$PWD/json
 # default
 export JSONLITE_DATA_DIR="$PWD"/jsonlite.data
 
-# manually set the data directory path
+# manually set the data directory
 export JSONLITE_DATA_DIR=/tmp/jsonlite.data
 ````
 
@@ -124,7 +124,7 @@ Usage: jsonlite command <command-specific-options>
 
 ````
 ➜ jsonlite version
-1.1.0
+1.1.1
 ````
 
 ### default
@@ -133,9 +133,9 @@ Usage: jsonlite command <command-specific-options>
 
 ```
 ➜ jsonlite
-JSONlite 1.1.0
-  set is using: json_reformat (fastest)
-  data directory path: /tmp/jsonlite.data
+JSONlite 1.1.1
+  json formatter: json_reformat (fastest)
+  data directory: /tmp/jsonlite.data
 
 Usage: jsonlite command <command-specific-options>
 

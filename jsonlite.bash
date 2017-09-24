@@ -18,7 +18,7 @@
 
 set -eo pipefail; [[ $TRACE ]] && set -x
 
-readonly VERSION="1.1.0"
+readonly VERSION="1.1.1"
 export JSONLITE_DATA_DIR=${JSONLITE_DATA_DIR:="$PWD/jsonlite.data"}
 
 jsonlite_version() {
@@ -29,14 +29,16 @@ jsonlite_info() {
   jsonlite_version
 
   if command -v json_reformat > /dev/null 2>&1; then
-    echo "  set is using: json_reformat (fastest)"
+    echo "  json formatter: json_reformat (fastest)"
   elif command -v jq > /dev/null 2>&1; then
-    echo "  set is using: jq (fast)"
+    echo "  json formatter: jq (fast)"
   else
-    echo "  set is using: python -m json.tool (slowest)"
+    echo "  [notice] install jq or json_reformat for improved write performance"
+    echo
+    echo "  json formatter: python -m json.tool (slowest)"
   fi
 
-  echo "  data directory path: $JSONLITE_DATA_DIR"
+  echo "  data directory: $JSONLITE_DATA_DIR"
   echo
 }
 
