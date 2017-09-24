@@ -73,7 +73,7 @@ cat foobar.json | jsonlite set
 
 ## 0.6.0 - *9/26/2015* (thanks [josegonzalez](https://github.com/josegonzalez))
 
-- You can now define where the data directory is using the `JSONLITE_PATH` environment variable. It defaults to the existing path, `$PWD/jsonlite.data`.
+- You can now define the data directory path using the `JSONLITE_PATH` environment variable. It defaults to `$PWD/jsonlite.data`.
 
 - JSONlite has been transformed such that it can be used as a library. To do so, simply source in all the methods at the top of your script.
 
