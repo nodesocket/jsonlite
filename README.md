@@ -2,7 +2,7 @@
 
 ##### A simple, self-contained, serverless, zero-configuration, json document store.
 
-JSONlite sandboxes the current working directory similar to SQLite. The JSONlite data directory is named `jsonlite.data` by default, and each json document is saved pretty printed as a uuid.
+JSONlite sandboxes the current working directory similar to SQLite. The JSONlite data directory is named `jsonlite.data` by default, and each json document is validated and saved pretty printed as a uuid.
 
 ## Requirements
 
