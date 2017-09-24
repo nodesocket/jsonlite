@@ -33,7 +33,7 @@ jsonlite_info() {
   elif command -v jq > /dev/null 2>&1; then
     echo "  json formatter: jq (fast)"
   else
-    echo "  [notice] install jq or json_reformat for improved write performance"
+    echo "  [notice] install yajl or jq for improved write performance"
     echo
     echo "  json formatter: python -m json.tool (slowest)"
   fi
