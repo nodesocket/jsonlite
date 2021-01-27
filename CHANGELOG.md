@@ -1,6 +1,10 @@
 CHANGELOG
 =========
 
+## 1.1.3 - *1/26/2021*
+
+- Documentation cleanup.
+
 ## 1.1.2 - *1/26/2021*
 
 - Documentation cleanup.

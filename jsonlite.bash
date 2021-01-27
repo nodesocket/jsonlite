@@ -18,7 +18,7 @@
 
 set -eo pipefail; [[ $TRACE ]] && set -x
 
-readonly VERSION="1.1.2"
+readonly VERSION="1.1.3"
 export JSONLITE_DATA_DIR=${JSONLITE_DATA_DIR:="$PWD/jsonlite.data"}
 
 jsonlite_version() {
@@ -33,9 +33,8 @@ jsonlite_info() {
   elif command -v jq > /dev/null 2>&1; then
     echo "  json formatter: jq (fast)"
   else
-    echo "  [notice] install yajl or jq for improved write performance"
-    echo
     echo "  json formatter: python -m json.tool (slowest)"
+    echo "    [notice] install yajl or jq for significantly improved set performance"
   fi
 
   echo "  data directory: $JSONLITE_DATA_DIR"
@@ -87,7 +86,7 @@ jsonlite_set() {
   # use the not-as-fast jq if available
   elif command -v jq > /dev/null 2>&1; then
     json_document=$(echo "$value" | jq '.')
-  # fallback to the slowest json.tool
+  # fallback to the slowest python -m json.tool
   else
     json_document=$(echo "$value" | python -m json.tool)
   fi

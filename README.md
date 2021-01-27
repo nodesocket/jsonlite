@@ -9,9 +9,9 @@ JSONlite sandboxes the current working directory similar to SQLite. The JSONlite
 1. bash
 2. uuidgen
 3. python -m json.tool
-  - Alternatively, install [yajl](http://lloyd.github.io/yajl/) for `json_reformat` *or* [jq](https://github.com/stedolan/jq) to get a roughly 3x performance improvement setting documents.
+  - Alternatively, install [yajl](http://lloyd.github.io/yajl/) for `json_reformat` *or* [jq](https://github.com/stedolan/jq) to get a significant performance improvement setting documents.
 
-  `json_reformat` is the fastest of the three. `jq` comes in at a close second and `python -m json.tool` is significantly the slowest. If possible, avoid using `python -m json.tool`.
+  `json_reformat` is the fastest of the three. `jq` comes in at a reasonable second and `python -m json.tool` is by far the slowest. If possible, avoid using `python -m json.tool`.
 
 ## Installation
 
@@ -124,7 +124,7 @@ Usage: jsonlite command <command-specific-options>
 
 ````
 ➜ jsonlite version
-1.1.2
+1.1.3
 ````
 
 ### default
@@ -133,7 +133,7 @@ Usage: jsonlite command <command-specific-options>
 
 ```
 ➜ jsonlite
-JSONlite 1.1.1
+JSONlite 1.1.3
   json formatter: json_reformat (fastest)
   data directory: /tmp/jsonlite.data
 
