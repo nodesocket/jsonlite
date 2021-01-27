@@ -1,6 +1,11 @@
 CHANGELOG
 =========
 
+## 1.1.2 - *1/26/2021*
+
+- Documentation cleanup.
+- Bump copyrights to 2021.
+
 ## 1.1.1 - *9/23/2017*
 
 - Changed text from `set is using` to `json formatter` in `jsonlite_info()`.

@@ -2,7 +2,7 @@
 
 ##### A simple, self-contained, serverless, zero-configuration, json document store.
 
-JSONlite sandboxes the current working directory similar to SQLite. The JSONlite data directory is named `jsonlite.data` by default, and each json document is validated and saved pretty printed as a uuid.
+JSONlite sandboxes the current working directory similar to SQLite. The JSONlite data directory by default is named `jsonlite.data` and each json document is validated and saved pretty printed as a uuid.
 
 ## Requirements
 
@@ -50,7 +50,7 @@ echo '{"key":"value"}' | jsonlite set
 4472B861-4C10-4C0A-A63B-E5D45AA679C0
 ````
 ````
-cat foobar.json | jsonlite set
+cat file.json | jsonlite set
 9DF4DC1F-121E-46DC-B580-E1663B645AED
 ````
 
@@ -124,7 +124,7 @@ Usage: jsonlite command <command-specific-options>
 
 ````
 ➜ jsonlite version
-1.1.1
+1.1.2
 ````
 
 ### default
@@ -175,7 +175,7 @@ For more information on semantic versioning, visit http://semver.org/.
 
 ## License & Legal
 
-Copyright 2017 Justin Keller
+Copyright 2021 Justin Keller
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
