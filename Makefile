@@ -3,7 +3,6 @@ ifeq ($(shell shellcheck > /dev/null 2>&1 ; echo $$?),127)
 ifeq ($(shell uname),Darwin)
 	brew install shellcheck
 else
-	sudo add-apt-repository 'deb http://archive.ubuntu.com/ubuntu trusty-backports main restricted universe multiverse'
 	sudo apt-get update -qq && sudo apt-get install -qq -y shellcheck
 endif
 endif
@@ -20,13 +19,13 @@ endif
 
 ci-dependencies: shellcheck bats
 
+setup:
+	$(MAKE) ci-dependencies
+
 lint:
 	@$(QUIET) find ./ -maxdepth 1 -not -path '*/\.*' | xargs file | egrep "shell|bash" | awk '{ print $$1 }' | sed 's/://g' | xargs shellcheck
 
 stresstest:
 	bash tests/set_get_delete_500.bash
-
-setup:
-	$(MAKE) ci-dependencies
 
 test: setup lint stresstest

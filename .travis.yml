@@ -1,4 +1,0 @@
-sudo: required
-language: bash
-before_install: make setup
-script: make test

@@ -1,6 +1,13 @@
 CHANGELOG
 =========
 
+## 1.1.4 - *4/30/2022*
+
+- Documentation cleanup.
+- Bump copyrights to 2022.
+- Removed miscellaneous unnecessary files.
+- Cleanup of Makefile.
+
 ## 1.1.3 - *1/26/2021*
 
 - Documentation cleanup.
