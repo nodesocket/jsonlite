@@ -38,18 +38,18 @@ export JSONLITE_DATA_DIR=/tmp/jsonlite.data
 
 > set \<json\> - Writes a json document and returns the document id
 
-````shell
+````
 ➜ jsonlite set '{"name":"John Doe","active":true,"permissions":{"read":true,"write":false}}'
 666B81D6-3F8A-4D57-BA3F-11FA8FC47246
 ````
 
 `set` also supports piping into it:
 
-````shell
+````
 echo '{"key":"value"}' | jsonlite set
 4472B861-4C10-4C0A-A63B-E5D45AA679C0
 ````
-````shell
+````
 jsonlite set < file.json
 9DF4DC1F-121E-46DC-B580-E1663B645AED
 ````
@@ -58,7 +58,7 @@ jsonlite set < file.json
 
 > get \<document-id\> - Retrieves a json document by document id
 
-````shell
+````
 ➜ jsonlite get 666B81D6-3F8A-4D57-BA3F-11FA8FC47246
 {
     "active": true,
@@ -74,7 +74,7 @@ jsonlite set < file.json
 
 > count - Total number of json documents in the database
 
-````shell
+````
 ➜ jsonlite count
 293
 ````
@@ -83,7 +83,7 @@ jsonlite set < file.json
 
 > delete \<document-id\> - Deletes a json document by document id
 
-````shell
+````
 ➜ jsonlite delete 666B81D6-3F8A-4D57-BA3F-11FA8FC47246
 ````
 
@@ -91,12 +91,12 @@ jsonlite set < file.json
 
 > drop (--force) - Drops the database
 
-````shell
+````
 ➜ jsonlite drop
 Drop database '/tmp/jsonlite.data'? [Y/n] Y
 ````
 
-````shell
+````
 ➜ jsonlite drop --force
 ````
 
@@ -104,7 +104,7 @@ Drop database '/tmp/jsonlite.data'? [Y/n] Y
 
 > help - Displays help
 
-````shell
+````
 ➜ jsonlite help
 Usage: jsonlite command <command-specific-options>
 
@@ -122,7 +122,7 @@ Usage: jsonlite command <command-specific-options>
 
 > version - Displays the current version
 
-````shell
+````
 ➜ jsonlite version
 1.1.4
 ````
@@ -131,7 +131,7 @@ Usage: jsonlite command <command-specific-options>
 
 > default - Displays the current version, configuration, and help
 
-```shell
+```
 ➜ jsonlite
 JSONlite 1.1.4
   json formatter: json_reformat (fastest)
