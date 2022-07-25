@@ -27,7 +27,7 @@ git clone https://github.com/nodesocket/jsonlite.git
 ln -s "$PWD"/jsonlite/jsonlite.bash /usr/local/bin/jsonlite
 ````
 
-or grab the latest [release source](https://github.com/nodesocket/jsonlite/releases).
+or grab the latest [release source code](https://github.com/nodesocket/jsonlite/releases).
 
 ## Configuration
 
