@@ -16,10 +16,9 @@ JSONlite sandboxes the current working directory similar to SQLite. The JSONlite
   Benchmark
     `tests/set_1k.bash`
 
-
-    > json_reformat: 6s
-    > jq: 19s
-    > python -m json.tool: 28s
+    json_reformat: 6s
+    jq: 19s
+    python -m json.tool: 28s
 
 ## Installation
 
