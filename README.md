@@ -49,6 +49,9 @@ export JSONLITE_DATA_DIR=/tmp/jsonlite.data
 echo '{"key":"value"}' | jsonlite set
 4472B861-4C10-4C0A-A63B-E5D45AA679C0
 ````
+
+and reading from a file:
+
 ````
 jsonlite set < file.json
 9DF4DC1F-121E-46DC-B580-E1663B645AED
@@ -124,7 +127,7 @@ Usage: jsonlite command <command-specific-options>
 
 ````
 ➜ jsonlite version
-1.1.4
+1.1.5
 ````
 
 ### default
@@ -133,7 +136,7 @@ Usage: jsonlite command <command-specific-options>
 
 ```
 ➜ jsonlite
-JSONlite 1.1.4
+JSONlite 1.1.5
   json formatter: json_reformat (fastest)
   data directory: /tmp/jsonlite.data
 

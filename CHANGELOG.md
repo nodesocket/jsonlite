@@ -1,6 +1,10 @@
 CHANGELOG
 =========
 
+## 1.1.5 - *7/24/2022*
+
+- Documentation cleanup.
+
 ## 1.1.4 - *4/20/2022*
 
 - Documentation cleanup.
