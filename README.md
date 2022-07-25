@@ -13,8 +13,7 @@ JSONlite sandboxes the current working directory similar to SQLite. The JSONlite
 
   `json_reformat` is the fastest of the three by far. `jq` comes in second and `python -m json.tool` is the slowest. If possible, avoid using `python -m json.tool`.
 
-  Benchmark
-    `tests/set_1k.bash`
+  Benchmark [tests/set_1k.bash](https://github.com/nodesocket/jsonlite/blob/master/tests/set_1k.bash):
 
     # MacBook Pro 16" M1 Max
     json_reformat: 6s
@@ -27,6 +26,8 @@ JSONlite sandboxes the current working directory similar to SQLite. The JSONlite
 git clone https://github.com/nodesocket/jsonlite.git
 ln -s "$PWD"/jsonlite/jsonlite.bash /usr/local/bin/jsonlite
 ````
+
+or grab the latest [release source](https://github.com/nodesocket/jsonlite/releases).
 
 ## Configuration
 
