@@ -11,4 +11,4 @@ for ((i = 0; i < ITERATIONS; i++)); do
   jsonlite set "{\"random\":\"$random_string\"}" >/dev/null
 done 3< <(LC_ALL=C tr -dc 'a-zA-Z0-9' </dev/urandom)
 
-#jsonlite drop --force
+jsonlite drop --force
