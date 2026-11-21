@@ -136,7 +136,7 @@ Usage: jsonlite command <command-specific-options>
 
 ````
 ➜ jsonlite version
-1.1.6
+1.1.7
 ````
 
 ### default
@@ -145,7 +145,7 @@ Usage: jsonlite command <command-specific-options>
 
 ```
 ➜ jsonlite
-JSONlite 1.1.6
+JSONlite 1.1.7
   json formatter: json_reformat (fastest)
   data directory: /tmp/jsonlite.data
 
@@ -187,7 +187,7 @@ For more information on semantic versioning, visit http://semver.org/.
 
 ## License & Legal
 
-Copyright 2022 Justin Keller
+Copyright 2026 Justin Keller
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

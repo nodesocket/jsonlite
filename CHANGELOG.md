@@ -1,6 +1,10 @@
 CHANGELOG
 =========
 
+## 1.1.7 - *11/20/2026*
+
+- Update the tests to use random 128 byte strings as json payload instead of hard-coded JSON.
+
 ## 1.1.6 - *11/20/2026*
 
 - Slight optimization not calling `awk '{print toupper($0)}'` on set.
