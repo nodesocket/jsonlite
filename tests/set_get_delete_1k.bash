@@ -6,10 +6,11 @@ ITERATIONS=1000
 
 jsonlite drop --force
 
-for i in $(seq 1 $ITERATIONS); do
-  ID=$(jsonlite set '{"name":"John Doe","active":true,"permissions":{"read":true,"write":false}}')
+for ((i = 0; i < ITERATIONS; i++)); do
+  IFS= read -r -n 128 random_string <&3 || break
+  ID=$(jsonlite set "{\"random\":\"$random_string\"}")
   jsonlite get "$ID" > /dev/null
   jsonlite delete "$ID"
-done
+done 3< <(LC_ALL=C tr -dc 'a-zA-Z0-9' </dev/urandom)
 
 jsonlite drop --force
