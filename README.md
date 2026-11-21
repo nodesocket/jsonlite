@@ -11,14 +11,14 @@ JSONlite sandboxes the current working directory similar to SQLite. The JSONlite
 3. python -m json.tool
   - Alternatively, install [yajl](http://lloyd.github.io/yajl/) for `json_reformat` *or* [jq](https://github.com/stedolan/jq) to get a significant performance improvement setting documents.
 
-  `json_reformat` is the fastest of the three by far. `jq` comes in second and `python -m json.tool` is the slowest. If possible, avoid using `python -m json.tool`.
+  `json_reformat` is the fastest. `jq` comes in second and `python -m json.tool` is the slowest. If possible, avoid using `python -m json.tool`.
 
   Benchmark [tests/set_1k.bash](https://github.com/nodesocket/jsonlite/blob/master/tests/set_1k.bash):
 
-    # MacBook Pro 16" M1 Max
-    json_reformat: 6s
-    jq: 19s
-    python -m json.tool: 28s
+    # Mac Mini M4 Pro _(48 GB memory)_
+    json_reformat: 9s
+    jq: 10s
+    python -m json.tool: 37s
 
 ## Installation
 
