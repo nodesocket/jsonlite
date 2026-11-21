@@ -1,6 +1,10 @@
 CHANGELOG
 =========
 
+## 1.1.6 - *11/20/2026*
+
+- Slight optimization not calling `awk '{print toupper($0)}'` on set.
+
 ## 1.1.5 - *7/24/2022*
 
 - Documentation cleanup.

@@ -18,7 +18,7 @@
 
 set -eo pipefail; [[ $TRACE ]] && set -x
 
-readonly VERSION="1.1.5"
+readonly VERSION="1.1.6"
 export JSONLITE_DATA_DIR=${JSONLITE_DATA_DIR:="$PWD/jsonlite.data"}
 
 jsonlite_version() {
@@ -96,7 +96,7 @@ jsonlite_set() {
   fi
 
   local uuid
-  uuid=$(uuidgen | awk '{print toupper($0)}')
+  uuid=$(uuidgen) || return 1
 
   echo "$json_document" > "$JSONLITE_DATA_DIR/$uuid"
   echo "$uuid"
