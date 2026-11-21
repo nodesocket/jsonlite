@@ -15,7 +15,7 @@ JSONlite sandboxes the current working directory similar to SQLite. The JSONlite
 
   Benchmark [tests/set_1k.bash](https://github.com/nodesocket/jsonlite/blob/master/tests/set_1k.bash):
 
-    # Mac Mini M4 Pro _(48 GB memory)_
+    # Mac Mini M4 Pro (48 GB memory)
     json_reformat: 9s
     jq: 10s
     python -m json.tool: 37s
